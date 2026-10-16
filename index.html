@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <title>Mr Insurance — Ali Salman, Sales Manager, State Life Insurance</title>
+  <meta name="description" content="Ali Salman, Sales Manager — State Life Insurance, Karachi. Life insurance plans for your family's protection. Free consultation: 0336-3598210.">
+  <style>
+/* Mr Insurance — Ali Salman, Sales Manager, State Life Insurance
+   Palette: deep navy #0A2A4A · gold #C7A23A · light grey #F4F7FA · WhatsApp green #25D366 (WhatsApp buttons only) */
+
+:root {
+  --navy: #0A2A4A;
+  --navy-dark: #071E36;
+  --gold: #C7A23A;
+  --gold-dark: #A98829;
+  --grey-bg: #F4F7FA;
+  --ink: #1C2733;
+  --muted: #55606C;
+  --whatsapp: #25D366;
+  --whatsapp-dark: #1DA851;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --shadow: 0 4px 18px rgba(10, 42, 74, 0.12);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grey-bg: #0E2438;
+    --ink: #E4EBF2;
+    --muted: #A9BACA;
+    --white: #0A1B2D;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+  body { background: #0A1B2D; }
+  .section h2, .content h2, .card h3, .page-head h1, .content .contact-line { color: #D9C98A; }
+  .content a { color: #D9C98A; }
+  .btn-call { background: transparent; color: #E4EBF2; }
+  .btn-call:hover { background: var(--gold); color: var(--navy-dark); }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--navy); }
+
+.container { width: min(1080px, 92%); margin: 0 auto; }
+
+/* ---------- Views (single-page navigation) ---------- */
+.view { display: none; }
+.view.active { display: block; }
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--navy);
+}
+@media (prefers-color-scheme: dark) { .back-link { color: #D9C98A; } }
+.back-link:hover { text-decoration: underline; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--navy);
+  color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+}
+.brand {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
+}
+.brand span { color: var(--gold); display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
+.brand-group { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+.logo-chip { background: #FFFFFF; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18); }
+.logo-chip--header { padding: 5px; }
+.logo-chip--header img { height: 44px; width: auto; max-width: none; display: block; }
+.logo-chip--footer { padding: 10px 14px; }
+.logo-chip--footer img { height: 120px; width: auto; max-width: 100%; display: block; }
+@media (max-width: 560px) {
+}
+.footer-logo { text-align: center; margin-bottom: 1.4rem; }
+@media (max-width: 560px) {
+  .brand-group { gap: 0.55rem; }
+  .logo-chip--header { padding: 4px; border-radius: 7px; }
+  .logo-chip--header img { height: 38px; }
+  .brand { font-size: 1.25rem; }
+  .logo-chip--footer img { height: 104px; }
+}
+.nav-toggle {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+.main-nav { display: none; }
+.main-nav.open { display: block; }
+.main-nav ul { list-style: none; padding: 0 0 0.9rem; }
+.main-nav a {
+  display: block;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.55rem 0.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.main-nav a:hover, .main-nav a.active { color: var(--gold); }
+
+@media (min-width: 820px) {
+  .nav-toggle { display: none; }
+  .main-nav { display: block; }
+  .main-nav ul { display: flex; gap: 1.6rem; padding: 0; }
+  .main-nav a { border-bottom: none; padding: 0.3rem 0; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: #FFFFFF;
+  padding: 2.6rem 0 3rem;
+  text-align: center;
+}
+.hero .eyebrow {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.hero .sub { color: #D7E1EC; max-width: 640px; margin: 0 auto 1.6rem; font-size: 1.08rem; }
+.hero-photo {
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  object-position: center 4%;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  margin: 0 auto 1.6rem;
+  box-shadow: var(--shadow);
+}
+.hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+.hero-media .hero-photo { margin: 0; }
+.logo-chip--hero-corner {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
+}
+.logo-chip--hero-corner img { height: 180px; width: auto; max-width: none; display: block; }
+@media (max-width: 900px) {
+  .logo-chip--hero-corner img { height: 150px; }
+}
+@media (max-width: 640px) {
+  .hero { padding-top: 11rem; }
+  .logo-chip--hero-corner { top: 1rem; right: 1rem; padding: 9px; border-radius: 12px; }
+  .logo-chip--hero-corner img { height: 128px; }
+}
+.ticks {
+  list-style: none;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+.ticks li { padding: 0.35rem 0 0.35rem 2rem; position: relative; font-weight: 600; }
+.ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  background: var(--gold);
+  color: var(--navy-dark);
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ---------- Buttons ---------- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-whatsapp { background: var(--whatsapp); color: #FFFFFF; }
+.btn-whatsapp:hover { background: var(--whatsapp-dark); }
+.btn-call { background: #FFFFFF; color: var(--navy); border: 2px solid var(--gold); }
+.btn-call:hover { background: var(--gold); color: var(--navy-dark); }
+.btn-gold { background: var(--gold); color: var(--navy-dark); }
+.btn-gold:hover { background: var(--gold-dark); color: #FFFFFF; }
+.btn-navy { background: var(--navy); color: #FFFFFF; }
+.btn-navy:hover { background: var(--navy-dark); color: var(--gold); }
+.btn-large { font-size: 1.15rem; padding: 1rem 2.2rem; }
+
+/* ---------- Sections & cards ---------- */
+.section { padding: 3rem 0; }
+.section-grey { background: var(--grey-bg); }
+.section h2 {
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin-bottom: 0.6rem;
+}
+.section .lead { text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 2rem; }
+
+.cards { display: grid; gap: 1.2rem; }
+@media (min-width: 760px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  border-top: 5px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+@media (prefers-color-scheme: dark) { .card { background: #10293F; } }
+.card h3 { color: var(--navy); font-size: 1.3rem; }
+.card p { color: var(--muted); flex: 1; }
+
+.plan-list { display: grid; gap: 1rem; max-width: 640px; margin: 0 auto; }
+.plan-list .btn { text-align: center; }
+
+/* ---------- Content pages ---------- */
+.page-head {
+  background: var(--grey-bg);
+  border-bottom: 3px solid var(--gold);
+  padding: 2.2rem 0 1.8rem;
+  text-align: center;
+}
+.page-head h1 { color: var(--navy); font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
+.page-head .tagline { color: var(--gold-dark); font-weight: 700; font-size: 1.1rem; margin-top: 0.3rem; }
+
+.content { padding: 2.4rem 0 3rem; }
+.content .poster {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 0 auto 2rem;
+  max-width: 680px;
+  width: 100%;
+}
+.content .cert-caption {
+  text-align: center;
+  color: var(--navy);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2.2rem 0 0.9rem;
+}
+.content .certificate {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 0 auto 2rem;
+  max-width: 820px;
+  width: 100%;
+}
+.advisor-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E8EF;
+  border-top: 5px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.6rem;
+  margin: 1.8rem 0 2rem;
+}
+.advisor-card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius);
+  border: 3px solid var(--gold);
+  flex-shrink: 0;
+}
+.advisor-card .advisor-label {
+  color: var(--gold-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.advisor-card .advisor-name {
+  color: var(--navy);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+.advisor-card p { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .advisor-card { flex-direction: column; text-align: center; padding: 1.4rem 1.2rem; }
+  .advisor-card img { width: 150px; height: 150px; }
+}
+.leader-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E8EF;
+  border-top: 5px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.6rem;
+  margin: 0 0 2rem;
+}
+@media (prefers-color-scheme: dark) { .leader-card { background: #10293F; border-color: #24405C; } }
+.leader-card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: center 4%;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  flex-shrink: 0;
+}
+.leader-card img.anchor-top { object-position: center 9%; }
+.leader-card .round-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.leader-card .round-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  transform: scale(1.9);
+  transform-origin: 50% 30%;
+}
+.leader-card .initials-photo {
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+}
+.leader-card .initials-photo span {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.leader-card .leader-role {
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+@media (prefers-color-scheme: dark) { .leader-card .leader-role { color: #D9C98A; } }
+.leader-card .leader-name { font-weight: 700; color: var(--navy); font-size: 1.15rem; margin-bottom: 0.5rem; }
+@media (prefers-color-scheme: dark) { .leader-card .leader-name { color: #D9C98A; } }
+.leader-card h2 { margin-top: 0; }
+.leader-card .btn-row { justify-content: flex-start; margin-top: 1rem; }
+@media (max-width: 640px) {
+  .leader-card { flex-direction: column; text-align: center; padding: 1.4rem 1.2rem; }
+  .leader-card img { width: 150px; height: 150px; }
+  .leader-card .round-photo { width: 150px; height: 150px; }
+  .leader-card .round-photo img { width: 100%; height: 100%; }
+  .leader-card .btn-row { justify-content: center; }
+}
+.cert-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  margin: 2.2rem 0 0.9rem;
+}
+.cert-head img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  flex-shrink: 0;
+}
+.cert-head .cert-caption { margin: 0; text-align: left; }
+.cert-head .cert-by { color: var(--muted); font-size: 0.95rem; margin-top: 0.25rem; }
+.poster-panel {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+  border: 3px solid var(--gold);
+  aspect-ratio: 1080 / 1500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  gap: 0.8rem;
+}
+.poster-panel .panel-name {
+  color: #FFFFFF;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+.poster-panel .panel-tag {
+  color: var(--gold);
+  font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+  font-weight: 700;
+}
+.poster-panel .panel-sub {
+  color: #D7E1EC;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.content h2 { color: var(--navy); font-size: 1.35rem; margin: 1.8rem 0 0.6rem; }
+.content p { margin-bottom: 1rem; }
+.content ul, .content ol { margin: 0 0 1rem 1.4rem; }
+.content li { margin-bottom: 0.45rem; }
+.content .example {
+  background: var(--grey-bg);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.6rem 0;
+}
+.content .note { color: var(--muted); font-size: 0.95rem; font-style: italic; }
+.content .contact-line { font-weight: 700; color: var(--navy); text-align: center; margin-top: 1.6rem; }
+.cta-box { text-align: center; margin: 2.2rem 0 0.6rem; display: grid; gap: 0.9rem; justify-items: center; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--navy-dark);
+  color: #C9D5E2;
+  padding: 2.4rem 0 1.8rem;
+  margin-top: 0;
+}
+.site-footer .foot-name { color: #FFFFFF; font-size: 1.2rem; font-weight: 700; }
+.site-footer .foot-name span { color: var(--gold); }
+.site-footer a { color: var(--gold); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.footer-grid { display: grid; gap: 1.4rem; margin-bottom: 1.6rem; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-nav { list-style: none; }
+.footer-nav li { margin-bottom: 0.4rem; }
+.disclaimer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.2rem;
+  font-size: 0.86rem;
+  color: #93A5B8;
+}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <span class="logo-chip logo-chip--header"><img src="assets/state-life-logo.png" alt="State Life Insurance Corporation of Pakistan" width="1080" height="1080"></span>
+        <a class="brand" href="#home" data-nav="home">Mr Insurance<span>Ali Salman — State Life Insurance</span></a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container">
+        <ul>
+          <li><a href="#home" data-nav="home">Home</a></li>
+          <li><a href="#conventional-plans" data-nav="conventional-plans">Conventional Plans</a></li>
+          <li><a href="#takaful-plans" data-nav="takaful-plans">Takaful Plans</a></li>
+          <li><a href="#join-our-team" data-nav="join-our-team">Join Our Team</a></li>
+          <li><a href="#about" data-nav="about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HOME ================= -->
+    <section class="view" data-view="home">
+      <div class="hero">
+        <span class="logo-chip logo-chip--hero-corner"><img src="assets/state-life-logo.png" alt="State Life Insurance Corporation of Pakistan" width="1080" height="1080"></span>
+        <div class="container">
+          <div class="hero-media">
+            <img class="hero-photo" src="assets/ali-salman.jpg" alt="Ali Salman, Sales Manager — State Life Insurance" width="210" height="210">
+          </div>
+          <p class="eyebrow">Ali Salman — Sales Manager, State Life Insurance</p>
+          <h1>Secure Your Family&rsquo;s Future Today</h1>
+          <p class="sub">Your children&rsquo;s education, your daughter&rsquo;s marriage, your family&rsquo;s protection — the right life insurance plan today brings peace of mind for tomorrow.</p>
+          <ul class="ticks">
+            <li>Free consultation — no fees</li>
+            <li>Plan matched to your budget and needs</li>
+            <li>Complete guidance — from form to claim</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-whatsapp btn-large" href="https://wa.me/923363598210" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a class="btn btn-call btn-large" href="tel:+923363598210">Call 0336-3598210</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <h2>Our Plans &amp; Services</h2>
+          <p class="lead">Choose a section to explore plans, calculate your premium, or join our team.</p>
+          <div class="cards">
+            <article class="card">
+              <h3>Conventional Plans</h3>
+              <p>Savings, protection and family security with bonuses — Endowment, Child Education &amp; Marriage, Jeevan Sathi, Golden Endowment, Whole Life, Platinum Plus, Titanium, Titanium Plus and Titanium Elite plans, each with its own premium calculator.</p>
+              <a class="btn btn-navy" href="#conventional-plans" data-nav="conventional-plans">View Conventional Plans</a>
+            </article>
+            <article class="card">
+              <h3>Takaful Plans</h3>
+              <p>Shariah-compliant family protection through State Life Family Takaful — protection, the Islamic way.</p>
+              <a class="btn btn-navy" href="#takaful-plans" data-nav="takaful-plans">View Takaful Plans</a>
+            </article>
+            <article class="card">
+              <h3>Join Our Team</h3>
+              <p>Build your career with State Life Insurance. Complete training, step-by-step guidance and earnings that grow with your effort.</p>
+              <a class="btn btn-navy" href="#join-our-team" data-nav="join-our-team">Join Our Team</a>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-grey" id="about">
+        <div class="container">
+          <h2>About</h2>
+          <p class="lead">Ali Salman is a Sales Manager with State Life Insurance in Karachi, Pakistan. He helps families choose the right life insurance plan for their needs — children&rsquo;s education, marriage, savings and family protection — and guides his clients through every step, from the proposal form to the claim.</p>
+          <div class="btn-row">
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a class="btn btn-call" href="tel:+923363598210">Call 0336-3598210</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <h2>Watch My Videos</h2>
+          <p class="lead">Plan explainers, family protection talks and real client conversations — watch them on my channels.</p>
+          <div class="btn-row">
+            <a class="btn btn-gold" href="https://www.youtube.com/channel/UCp9t9qunzooIxaZr7z1egow" target="_blank" rel="noopener">YouTube — Mr.Insurance pak</a>
+            <a class="btn btn-navy" href="https://www.facebook.com/mr.insurance12/" target="_blank" rel="noopener">Facebook — Mr Insurance 12</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-grey">
+        <div class="container">
+          <h2>Google Par Mr Insurance</h2>
+          <p class="lead">Google Maps par mera contact aur location dekhein — review bhi de sakte hain.</p>
+          <div class="btn-row">
+            <a class="btn btn-gold btn-large" href="https://maps.app.goo.gl/YRR2cD9aTf6h1jiX6?g_st=awb" target="_blank" rel="noopener">Google Maps Kholen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONVENTIONAL PLANS ================= -->
+    <section class="view" data-view="conventional-plans">
+      <div class="page-head">
+        <div class="container">
+          <h1>Conventional Plans</h1>
+          <p class="tagline">Life Insurance Plans by State Life</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <p>Our conventional life insurance plans — savings, protection and family security, with bonuses. Choose a plan to see its details and calculate your own premium:</p>
+
+          <div class="plan-list">
+            <a class="btn btn-navy" href="#endowment-plan" data-nav="endowment-plan">Endowment Plan</a>
+            <a class="btn btn-navy" href="#child-education-marriage-plan" data-nav="child-education-marriage-plan">Child Education &amp; Marriage Plan</a>
+            <a class="btn btn-navy" href="#jeevan-sathi-plan" data-nav="jeevan-sathi-plan">Jeevan Sathi Plan</a>
+            <a class="btn btn-navy" href="#golden-endowment-plan" data-nav="golden-endowment-plan">Golden Endowment Plan</a>
+            <a class="btn btn-navy" href="#whole-life-plan" data-nav="whole-life-plan">Whole Life Plan</a>
+            <a class="btn btn-navy" href="#platinum-plus-plan" data-nav="platinum-plus-plan">Platinum Plus</a>
+            <a class="btn btn-navy" href="#titanium-plan" data-nav="titanium-plan">Titanium</a>
+            <a class="btn btn-navy" href="#titanium-plus-plan" data-nav="titanium-plus-plan">Titanium Plus</a>
+            <a class="btn btn-navy" href="#titanium-elite-plan" data-nav="titanium-elite-plan">Titanium Elite</a>
+          </div>
+
+          <p class="contact-line">Confused about which plan suits you? Get free advice:<br>
+          Call or WhatsApp Ali Salman — Sales Manager, State Life Insurance: <a href="tel:+923363598210">0336-3598210</a></p>
+
+          <div class="cta-box">
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL PLANS ================= -->
+    <section class="view" data-view="takaful-plans">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Plans</h1>
+          <p class="tagline">Shariah-Compliant Family Protection</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <p>Takaful is a Shariah-compliant system of mutual protection. Under State Life Family Takaful (Wakalah–Waqf model), participants contribute on the basis of <strong>Tabarru (donation)</strong> into a common Waqf fund, and the fund supports any participant&rsquo;s family in time of need — protection, the Islamic way.</p>
+
+          <p>Our Takaful plans — Shariah-compliant protection and savings. Choose a plan to see its details and calculate your own contribution:</p>
+
+          <div class="advisor-card">
+            <img src="assets/mufti-hassaan-kaleem.jpg" alt="Mufti Muhammad Hassaan Kaleem — Shariah Advisor, State Life Window Takaful Operations">
+            <div>
+              <p class="advisor-label">Shariah Advisor</p>
+              <p class="advisor-name">Mufti Muhammad Hassaan Kaleem</p>
+              <p>Shariah Advisor — State Life Window Takaful Operations. Inhi ke dastakhat se hamare Takaful plans ka Shariah Compliance Certificate jari hua hai.</p>
+            </div>
+          </div>
+
+          <div class="plan-list">
+            <a class="btn btn-navy" href="#takaful-endowment-plan" data-nav="takaful-endowment-plan">Takaful Endowment Plan</a>
+            <a class="btn btn-navy" href="#takaful-child-education-marriage-plan" data-nav="takaful-child-education-marriage-plan">Takaful Child Education &amp; Marriage Plan</a>
+            <a class="btn btn-navy" href="#takaful-golden-endowment-plan" data-nav="takaful-golden-endowment-plan">Takaful Golden Endowment Plan</a>
+            <a class="btn btn-navy" href="#takaful-savings-plan" data-nav="takaful-savings-plan">Takaful Savings Plan</a>
+            <a class="btn btn-navy" href="#takaful-platinum-plus-plan" data-nav="takaful-platinum-plus-plan">Takaful Platinum Plus Plan</a>
+          </div>
+
+          <p class="contact-line">Call or WhatsApp Ali Salman — Sales Manager, State Life Insurance: <a href="tel:+923363598210">0336-3598210</a></p>
+
+          <div class="cta-box">
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JOIN OUR TEAM ================= -->
+    <section class="view" data-view="join-our-team">
+      <div class="page-head">
+        <div class="container">
+          <h1>Join Our Team</h1>
+          <p class="tagline">Build Your Career with State Life Insurance</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <div class="leader-card">
+            <img class="anchor-top" src="assets/area-manager-hassan-abbas.png" alt="Syed Hassan Abbas, Area Manager — State Life Insurance">
+            <div>
+              <h2>Our Area Manager</h2>
+              <p class="leader-name">Syed Hassan Abbas — Area Manager, State Life Insurance</p>
+              <p>Syed Hassan Abbas is the Area Manager of our organization at State Life Insurance. Under his leadership and supervision, our teams serve families across Karachi. Representatives who join through this page become part of his organization and grow under the guidance of experienced managers.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <img src="assets/ali-salman.jpg" alt="Ali Salman, Sales Manager — State Life Insurance">
+            <div>
+              <h2>Meet Your Team Leader</h2>
+              <p>Ali Salman — Sales Manager, State Life Insurance, Karachi. Ali Salman leads a growing team of insurance representatives at State Life. Everyone who joins his team receives complete training and personal guidance at every step — from the first form to the first policy. In his team, hard work is recognised and achievers are honoured. If you want to build your career and income with State Life, you will not be alone — you will learn directly from an experienced leader.</p>
+              <div class="btn-row">
+                <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">WhatsApp: 0336-3598210</a>
+                <a class="btn btn-call" href="tel:+923363598210">Call 0336-3598210</a>
+              </div>
+            </div>
+          </div>
+
+          <h2>Our Team</h2>
+
+          <div class="leader-card">
+            <div class="round-photo">
+              <img src="assets/syed-murtaza-aftab-abidi.jpg" alt="Syed Murtaza Aftab Abidi, Sales Representative — State Life Insurance">
+            </div>
+            <div>
+              <p class="leader-name">Syed Murtaza Aftab Abidi</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families protect their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo">
+              <img src="assets/bilawal-ali.jpg" alt="Bilawal Ali, Sales Representative — State Life Insurance" style="object-position: center 12%; transform-origin: 50% 20%;">
+            </div>
+            <div>
+              <p class="leader-name">Bilawal Ali</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo">
+              <img src="assets/dr-shafeeq.jpg" alt="Dr. Muhammad Shafeeq, Sales Representative — State Life Insurance" style="object-position: center 12%; transform-origin: 55% 18%;">
+            </div>
+            <div>
+              <p class="leader-name">Dr. Muhammad Shafeeq</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo">
+              <img src="assets/syed-imran-haider.jpg" alt="Syed Imran Haider, Sales Representative — State Life Insurance" style="object-position: center 13%; transform: scale(1.35); transform-origin: 100% 50%;">
+            </div>
+            <div>
+              <p class="leader-name">Syed Imran Haider</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo initials-photo" role="img" aria-label="Samreen Zehra, Sales Representative — State Life Insurance">
+              <span aria-hidden="true">SZ</span>
+            </div>
+            <div>
+              <p class="leader-name">Samreen Zehra</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo initials-photo" role="img" aria-label="Mahtab Fatima, Sales Representative — State Life Insurance">
+              <span aria-hidden="true">MF</span>
+            </div>
+            <div>
+              <p class="leader-name">Mahtab Fatima</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo initials-photo" role="img" aria-label="Mehvish Nazeer, Sales Representative — State Life Insurance">
+              <span aria-hidden="true">MN</span>
+            </div>
+            <div>
+              <p class="leader-name">Mehvish Nazeer</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>A Sales Representative in Ali Salman&rsquo;s team, helping families secure their future with the right life insurance and Takaful plans.</p>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="round-photo">
+              <img src="assets/syed-irtiza-haider.jpg" alt="Syed Irtiza Haider, Sales Representative — State Life Insurance" style="transform: scale(1.5); transform-origin: 47% 24%;">
+            </div>
+            <div>
+              <p class="leader-name">Syed Irtiza Haider</p>
+              <p class="leader-role">Sales Representative — State Life Insurance</p>
+              <p>Our team champion — a Sales Representative in Ali Salman&rsquo;s team whose hard work and consistency set an example for the whole team.</p>
+            </div>
+          </div>
+
+          <p>Are you hardworking and looking for a career where your income grows with your effort?</p> Join the team of <strong>Ali Salman, Sales Manager — State Life Insurance, Karachi</strong>, and build your future by protecting the future of other families.</p>
+
+          <h2>Why join our team?</h2>
+          <ul>
+            <li>Complete training and step-by-step guidance — you are never left alone in the field</li>
+            <li>A supportive team that works together and celebrates every success</li>
+            <li>Your earnings grow with your performance — the harder you work, the more you earn</li>
+            <li>A respected career with Pakistan&rsquo;s largest life insurance organisation, serving families since 1972</li>
+          </ul>
+
+          <h2>Who can apply?</h2>
+          <ul>
+            <li>Students who want to earn alongside their studies</li>
+            <li>Job holders looking for a second income</li>
+            <li>Anyone seeking a full-time career in sales and financial services</li>
+          </ul>
+
+          <p>No previous insurance experience is required — training is provided. What matters is honesty, hard work and the will to succeed.</p>
+
+          <p class="contact-line">Call or WhatsApp Ali Salman — Sales Manager, State Life Insurance: <a href="tel:+923363598210">0336-3598210</a></p>
+
+          <div class="cta-box">
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Apply on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENDOWMENT PLAN ================= -->
+    <section class="view" data-view="endowment-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Endowment Plan</h1>
+          <p class="tagline">Savings + Protection</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/endowment-poster.png" alt="Endowment Plan — poster">
+
+          <p>This plan gives you both savings and protection — you receive the amount at the end of the term, and if anything happens in between, your family still gets complete protection.</p>
+
+          <h2>What this plan offers</h2>
+          <ul>
+            <li><strong>At maturity:</strong> if you survive the term, you receive the Sum Assured + accrued Bonus</li>
+            <li><strong>On death (God forbid):</strong> if death occurs during the term, the full Sum Assured + Bonus is paid to your heirs</li>
+            <li>This is a <strong>with-profit</strong> plan — you share in State Life&rsquo;s annual bonus</li>
+            <li>Once at least 2 years of premiums are paid, the policy acquires a Surrender Value</li>
+            <li>The policy can be cancelled within 14 days of receiving it (free look period)</li>
+          </ul>
+
+          <h2>Eligibility and term</h2>
+          <ul>
+            <li>Entry age: minimum 10 years, maximum 65 years</li>
+            <li>Maximum age at maturity: 75 years</li>
+            <li>Premiums: yearly, half-yearly, quarterly or monthly — payable until the end of the term or death, whichever comes first</li>
+            <li>Extra cover (riders): additional cover such as Accidental Death Benefit can be added — on accidental death, an extra amount equal to the basic Sum Assured is paid</li>
+          </ul>
+
+          <h2>How much will the premium be?</h2>
+          <p>The premium depends on your age, Sum Assured and term. <strong>A real example:</strong> age 30, term 20 years, Sum Assured Rs 500,000 — yearly premium <strong>Rs 24,060</strong> (monthly Rs 2,165). You can also add the Family Income Benefit (FIB) and Accidental Death Benefit (ADB) riders — the calculator below includes them. Use the calculator to work out your own premium, or share your age and required amount on WhatsApp to get your exact figure.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/endowment-plan-premium-calculator-gb6sxsku3xdx0k" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">Ali Salman — Sales Manager, State Life Insurance<br>
+          Call or WhatsApp: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CHILD EDUCATION & MARRIAGE PLAN ================= -->
+    <section class="view" data-view="child-education-marriage-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Child Education &amp; Marriage Plan</h1>
+          <p class="tagline">Preparing for Your Child&rsquo;s Future</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/child-education-marriage-poster.png" alt="Child Education &amp; Marriage Plan — poster">
+
+          <p>The Child Education &amp; Marriage Plan is made for one purpose: your child&rsquo;s future. It provides a lump sum when your child reaches the age where money matters most — 18, 21 or 25 years — the time of higher education, marriage, or setting up a business.</p>
+
+          <h2>How it works</h2>
+          <ul>
+            <li>You choose the target age: 18, 21 or 25 years</li>
+            <li>At the end of the term, the child receives the full Sum Assured + accrued Bonuses</li>
+            <li>The amount can be taken as a lump sum, or in five equal annual instalments</li>
+          </ul>
+
+          <h2>Who can take this plan</h2>
+          <ul>
+            <li>Child&rsquo;s age at entry: 1 to 15 years</li>
+            <li>Policyholder&rsquo;s age at entry: 20 to 60 years</li>
+            <li>Plan term: 10 to 24 years (set so the amount is payable at age 18, 21 or 25)</li>
+            <li>Parents can take this plan — and so can grandparents, uncles, aunts, or anyone who pays for the child&rsquo;s maintenance</li>
+          </ul>
+
+          <h2>If the child passes away during the term (God forbid)</h2>
+          <p>The policyholder can choose:</p>
+          <ul>
+            <li>Continue the same plan for another child, or</li>
+            <li>Take a refund of all premiums paid or the policy&rsquo;s cash value — whichever is higher — or</li>
+            <li>Continue the policy without naming another child</li>
+          </ul>
+
+          <h2>Good to know</h2>
+          <ul>
+            <li>Premium is level — the same every year — payable till maturity</li>
+            <li>The Family Income Benefit (FIB) Rider can be attached separately (this plan has no built-in income benefit)</li>
+            <li>ADB (Accidental Death Benefit) rider is also available</li>
+            <li>No medical evidence is required on the child&rsquo;s life</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>A real example:</strong> Policyholder age 30, child age 5, amount payable at age 25, Sum Assured Rs 500,000 &rarr; annual premium Rs 24,060 (monthly instalment Rs 2,165).</p>
+          </div>
+
+          <p class="note">Note: Final premium is subject to State Life&rsquo;s underwriting. For your child&rsquo;s exact premium, use the Premium Calculator on this page or contact on WhatsApp: 0336-3598210</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/child-education-marriage-plan-premium-xyt6sxtxm4xsxvoxg" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">— Ali Salman, Sales Manager, State Life Insurance<br>
+          Call or WhatsApp: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JEEVAN SATHI PLAN ================= -->
+    <section class="view" data-view="jeevan-sathi-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Jeevan Sathi Plan</h1>
+          <p class="tagline">One Policy — Protection for Both Lives</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/jeevan-sathi-poster.png" alt="Jeevan Sathi Plan — poster">
+
+          <p>Jeevan Sathi is a joint-life plan for a husband and wife. One policy covers both lives, with one Sum Assured — so the protection continues even if one of you is no longer there.</p>
+
+          <h2>How it works</h2>
+          <ul>
+            <li>Premiums are payable until the end of the term, or the first death, whichever comes first.</li>
+            <li>On the <strong>first death</strong>, the Sum Assured is paid to the surviving spouse — and all further premiums are <strong>waived</strong>. The surviving spouse&rsquo;s cover continues, and the policy keeps sharing in bonuses.</li>
+            <li>On the <strong>second death</strong>, the Sum Assured is paid <strong>again</strong>, together with the bonuses — a double payment of protection from a single plan.</li>
+            <li>If the surviving spouse lives to the end of the term, the Sum Assured and bonuses are paid at maturity — even though the Sum Assured was already paid once.</li>
+            <li>If <strong>both</strong> of you survive the term, the Sum Assured and bonuses are paid at maturity.</li>
+            <li>Both lives are medically examined, and two proposal forms are completed — one for each life.</li>
+          </ul>
+
+          <p><strong>Terms available:</strong> 10, 15, 20, 25, 30 or 35 years</p>
+
+          <h2>How the premium is calculated</h2>
+          <p>The premium is based on an <strong>Equivalent Age</strong>. If both of you are the same age, that age is used. If your ages differ, a small deduction (from the State Life Uniform Seniority Table) is made from the elder spouse&rsquo;s age — so an age gap does not push the premium up unfairly. Try it yourself in the calculator below.</p>
+
+          <h2>Extra protection</h2>
+          <ul>
+            <li><strong>ADB (Accidental Death Benefit)</strong> can be added for both lives. Note: special terms and conditions (T&amp;C) apply to ADB on the woman&rsquo;s life — please ask for details.</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>A real example</strong> (from the official rate book): Husband aged 30, wife aged 30, 20-year term, Sum Assured Rs 500,000 &rarr; Annual Premium <strong>Rs 28,010</strong> — just <strong>Rs 2,521 per month</strong> to protect both lives with one policy.</p>
+          </div>
+
+          <p class="note">Note: The premium shown by the calculator is an estimate. The final premium is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/jeevan-sathi-plan-premium-calculator-tj6sxuxz9i1dxz" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, call or WhatsApp Ali Salman — Sales Manager, State Life Insurance: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GOLDEN ENDOWMENT PLAN ================= -->
+    <section class="view" data-view="golden-endowment-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Golden Endowment Plan</h1>
+          <p class="tagline">Pay for 7 Years — Covered for 20 Years</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/golden-endowment-poster.png" alt="Golden Endowment Plan — poster">
+
+          <p>Golden Endowment is a special endowment plan with one big advantage: you pay premiums for only <strong>7 years</strong>, while your policy runs for a full <strong>20 years</strong>. After 7 years, you stop paying — and your protection and bonuses keep growing until maturity.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Policy term:</strong> 20 years</li>
+            <li><strong>Premium term:</strong> only 7 years — no premiums after the 7th year</li>
+            <li><strong>Entry age:</strong> 20 to 55 years</li>
+            <li><strong>Premium mode:</strong> yearly only</li>
+            <li><strong>Death benefit:</strong> Sum Assured + accrued bonuses</li>
+            <li><strong>Maturity benefit:</strong> Sum Assured + bonuses at the end of 20 years</li>
+            <li>Bonuses are declared at the same rates as the Endowment Assurance plan (20-year term)</li>
+          </ul>
+
+          <h2>Extra protection</h2>
+          <ul>
+            <li><strong>ADB (Accidental Death Benefit)</strong> can be added up to age 40.</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>A real example</strong> (from the official rate book): Age 30, Sum Assured Rs 500,000 &rarr; Annual Premium <strong>Rs 53,275</strong> — payable for <strong>7 years only</strong>, while the policy matures at 20 years.</p>
+          </div>
+
+          <p class="note">Note: The premium shown by the calculator is an estimate. The final premium is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/golden-endowment-plan-premium-hy6sxvrxfx0zzd" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, call or WhatsApp Ali Salman — Sales Manager, State Life Insurance: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHOLE LIFE PLAN ================= -->
+    <section class="view" data-view="whole-life-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Whole Life Plan</h1>
+          <p class="tagline">Protection for the Whole of Life</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/whole-life-poster.png" alt="Whole Life Plan — poster">
+
+          <p>Whole Life Assurance is a unique combination of protection and savings that can be purchased at a very economical premium. There is no fixed policy term to choose — your cover runs for the whole of your life, and premiums are payable until death or until the policy anniversary nearest age 85, when the policy matures.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Cover:</strong> for the whole of life — the policy matures at the policy anniversary nearest age 85</li>
+            <li><strong>Entry age:</strong> 10 to 65 years (the ages priced in the official rate table)</li>
+            <li><strong>Premium modes:</strong> yearly, half-yearly, quarterly or monthly</li>
+            <li><strong>Death benefit:</strong> Sum Assured + bonuses (if any)</li>
+            <li><strong>Maturity benefit:</strong> Sum Assured + bonuses at the policy anniversary nearest age 85</li>
+            <li><strong>With profits:</strong> the rate book notes that bonus rates under this plan are usually much higher than those of the other plans</li>
+            <li>After two years&rsquo; premiums have been paid, the policy acquires surrender and non-forfeiture values, and a policy loan of up to 80% of the surrender value can be taken</li>
+          </ul>
+
+          <h2>Extra protection</h2>
+          <ul>
+            <li><strong>ADB (Accidental Death Benefit)</strong> can be added — standard rate Rs 1.25 per Rs 1,000 of Sum Assured.</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>A real example</strong> (calculated from the official rate book): Age 30, Sum Assured Rs 500,000 &rarr; Annual Premium <strong>Rs 10,105</strong> — or just <strong>Rs 909 per month</strong>.</p>
+          </div>
+
+          <p class="note">Note: The premium shown by the calculator is an estimate. The final premium is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/whole-life-plan-premium-calculator-lf6tezfxnxqd1" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance<br>
+          WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PLATINUM PLUS PLAN ================= -->
+    <section class="view" data-view="platinum-plus-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Platinum Plus Plan</h1>
+          <p class="tagline">Pay for 3 Years — Covered for 10 Years</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/platinum-plus-poster.png" alt="Platinum Plus Plan — poster">
+
+          <p>Platinum Plus is a 10-year endowment assurance plan with one big advantage: the premium paying period is limited to only <strong>3 years</strong>. You pay for 3 years — yearly only — while your policy runs for the full <strong>10 years</strong>.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Policy term:</strong> 10 years</li>
+            <li><strong>Premium term:</strong> only 3 years — no premiums after the 3rd year</li>
+            <li><strong>Entry age:</strong> 20 to 65 years</li>
+            <li><strong>Premium mode:</strong> yearly only</li>
+            <li><strong>Bonus:</strong> according to the rate book, the bonus rates for this plan are 50% higher than those of the 10-year Endowment plan (Table 03/10)</li>
+            <li>Full benefit details are given in the official State Life policy document</li>
+          </ul>
+
+          <h2>Extra protection</h2>
+          <ul>
+            <li><strong>ADB (Accidental Death Benefit)</strong> can be added at this plan&rsquo;s own rate — Rs 3.42 per Rs 1,000 of basic Sum Assured.</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>A real example</strong> (calculated from the official rate book): Age 40, Sum Assured Rs 500,000 &rarr; Annual Premium <strong>Rs 140,400</strong> — payable for <strong>3 years only</strong>, while the policy runs for 10 years.</p>
+          </div>
+
+          <p class="note">Note: The premium shown by the calculator is an estimate. The final premium is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/platinum-plus-plan-premium-calculator-txm6tezwxwxnxm7" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance<br>
+          WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TITANIUM PLAN ================= -->
+    <section class="view" data-view="titanium-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Titanium Plan</h1>
+          <p class="tagline">Smart Protection · Flexible Investment · Secure Future</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/titanium-poster.png" alt="Titanium Plan — poster">
+
+          <p>Titanium is a single premium universal life insurance plan. You invest <strong>one time only</strong> — there are no yearly or monthly premiums — and your money combines life protection with investment growth over a coverage term of 2 to 15 years.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Premium:</strong> one-time single premium — pay once, no repeat premiums</li>
+            <li><strong>Minimum single premium:</strong> Rs 100,000</li>
+            <li><strong>Entry age:</strong> up to 65 years</li>
+            <li><strong>Coverage term:</strong> 2 to 15 years (determined by State Life according to the customer&rsquo;s profile)</li>
+            <li><strong>Life Sum Assured:</strong> up to 10 times of the single premium (determined by State Life according to the customer&rsquo;s profile and subject to underwriting)</li>
+            <li><strong>Death benefit:</strong> Sum Assured PLUS Net Account Value</li>
+            <li><strong>Maturity benefit:</strong> Net Account Value at the end of the selected term</li>
+            <li><strong>Partial withdrawal:</strong> up to 80% of the cash value can be withdrawn without surrendering the policy</li>
+            <li>Investment income is credited annually, based on statutory actuarial valuation</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>Illustration</strong> (Ali Salman&rsquo;s calculator rule — for illustration only): a single premium of Rs 100,000 &rarr; illustrated Sum Assured <strong>Rs 125,000</strong> (single premium × 1.25). The final Sum Assured is set by State Life under its underwriting — as per the brochure it can be up to 10 times of the single premium.</p>
+          </div>
+
+          <p class="note">Please note: the maturity value is the Net Account Value, which depends on investment performance. No fixed or guaranteed maturity amount or return is promised — the brochure&rsquo;s figures are indicative and for illustration purposes only.</p>
+
+          <p class="note">Note: The figures shown by the calculator are an illustration. The final Sum Assured is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/titanium-plan-calculator-xnd6texaz0xux0xn" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance<br>
+          WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TITANIUM PLUS PLAN ================= -->
+    <section class="view" data-view="titanium-plus-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Titanium Plus Plan</h1>
+          <p class="tagline">Smart Protection · Flexible Investment · Secure Future</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/titanium-plus-poster.png" alt="Titanium Plus Plan — poster">
+
+          <p>Titanium Plus is a single premium universal life insurance plan. You invest <strong>one time only</strong> — there are no yearly or monthly premiums — and your money combines life protection with investment growth over a coverage term of 2 to 15 years, with added cover for utility bills and funeral expenses on accidental death.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Premium:</strong> one-time single premium — pay once, no repeat premiums</li>
+            <li><strong>Minimum single premium:</strong> Rs 500,000</li>
+            <li><strong>Entry age:</strong> up to 65 years</li>
+            <li><strong>Coverage term:</strong> 2 to 15 years (determined by State Life according to the customer&rsquo;s profile)</li>
+            <li><strong>Life Sum Assured:</strong> up to 10 times of the single premium (determined by State Life according to the customer&rsquo;s profile and subject to underwriting)</li>
+            <li><strong>Death benefit:</strong> Sum Assured PLUS Net Account Value</li>
+            <li><strong>Maturity benefit:</strong> Net Account Value at the end of the selected term</li>
+            <li><strong>Partial withdrawal:</strong> up to 80% of the cash value can be withdrawn without surrendering the policy</li>
+            <li>Investment income is credited annually, based on statutory actuarial valuation</li>
+          </ul>
+
+          <h2>Extra protection on accidental death (as per brochure)</h2>
+          <ul>
+            <li>Utility Bill cover up to Rs 120,000</li>
+            <li>Funeral cover up to Rs 350,000</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>Illustration</strong> (Ali Salman&rsquo;s calculator rule — for illustration only): a single premium of Rs 500,000 &rarr; illustrated Sum Assured <strong>Rs 625,000</strong> (single premium × 1.25). The final Sum Assured is set by State Life under its underwriting — as per the brochure it can be up to 10 times of the single premium.</p>
+          </div>
+
+          <p class="note">Please note: the maturity value is the Net Account Value, which depends on investment performance. No fixed or guaranteed maturity amount or return is promised — the brochure&rsquo;s figures are indicative and for illustration purposes only.</p>
+
+          <p class="note">Note: The figures shown by the calculator are an illustration. The final Sum Assured is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/titanium-plus-plan-calculator-xhxk6texax0xdixxb" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance<br>
+          WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TITANIUM ELITE PLAN ================= -->
+    <section class="view" data-view="titanium-elite-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Titanium Elite Plan</h1>
+          <p class="tagline">Smart Protection · Flexible Investment · Secure Future</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#conventional-plans" data-nav="conventional-plans">&larr; All Conventional Plans</a>
+          <img class="poster" src="assets/titanium-elite-poster.png" alt="Titanium Elite Plan — poster">
+
+          <p>Titanium Elite is a single premium universal life insurance plan for larger one-time investments. You invest <strong>one time only</strong> — there are no yearly or monthly premiums — and your money combines life protection with investment growth over a coverage term of 2 to 15 years, with the family&rsquo;s highest utility bill and funeral covers on accidental death, plus a Special Reward Discount Card for one year.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Premium:</strong> one-time single premium — pay once, no repeat premiums</li>
+            <li><strong>Minimum single premium:</strong> Rs 1,000,000</li>
+            <li><strong>Entry age:</strong> up to 69 years</li>
+            <li><strong>Coverage term:</strong> 2 to 15 years (determined by State Life according to the customer&rsquo;s profile)</li>
+            <li><strong>Life Sum Assured:</strong> up to 10 times of the single premium (determined by State Life according to the customer&rsquo;s profile and subject to underwriting)</li>
+            <li><strong>Death benefit:</strong> Sum Assured PLUS Net Account Value</li>
+            <li><strong>Maturity benefit:</strong> Net Account Value at the end of the selected term</li>
+            <li><strong>Partial withdrawal:</strong> up to 80% of the cash value can be withdrawn without surrendering the policy</li>
+            <li>Investment income is credited annually, based on statutory actuarial valuation</li>
+            <li><strong>Special Reward Discount Card</strong> for the policyholder for one year</li>
+          </ul>
+
+          <h2>Extra protection on accidental death (as per brochure)</h2>
+          <ul>
+            <li>Utility Bill cover up to Rs 600,000</li>
+            <li>Funeral cover up to Rs 1,000,000</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>Illustration</strong> (Ali Salman&rsquo;s calculator rule — for illustration only): a single premium of Rs 1,000,000 &rarr; illustrated Sum Assured <strong>Rs 1,250,000</strong> (single premium × 1.25). The final Sum Assured is set by State Life under its underwriting — as per the brochure it can be up to 10 times of the single premium.</p>
+          </div>
+
+          <p class="note">Please note: the maturity value is the Net Account Value, which depends on investment performance. No fixed or guaranteed maturity amount or return is promised — the brochure&rsquo;s figures are indicative and for illustration purposes only.</p>
+
+          <p class="note">Note: The figures shown by the calculator are an illustration. The final Sum Assured is decided by State Life&rsquo;s policy and underwriting.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/titanium-elite-plan-calculator-oxl6texa6xoxcxym" target="_blank" rel="noopener">Calculate Your Premium</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance<br>
+          WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL ENDOWMENT PLAN ================= -->
+    <section class="view" data-view="takaful-endowment-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Endowment Plan</h1>
+          <p class="tagline">Shariah-Compliant Protection with Bonuses and Savings</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#takaful-plans" data-nav="takaful-plans">&larr; All Takaful Plans</a>
+          <img class="poster" src="assets/tayyab-takaful-endowment-poster.jpg" alt="Tayyab Takaful Endowment Plan — official poster">
+
+          <p>Takaful Endowment is a <strong>bonus-based, Shariah-compliant</strong> plan that combines life protection with savings. Your contributions are shared between the Participant Takaful Endowment Fund (PTEF), which provides your Sum Cover and declared bonuses, and the Participant Investment Endowment Fund (PIEF), which builds your investment value — family protection and disciplined savings in one membership.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Entry age:</strong> 18 to 65 years</li>
+            <li><strong>Contribution paying term:</strong> 10 to 57 years — offered where entry age + term does not exceed 75 (maximum maturity age 75)</li>
+            <li><strong>Contributions:</strong> calculated from the rate book&rsquo;s contribution table for your age and term, applied per Rs 1,000 of Sum Cover, and shown here on an annual basis</li>
+            <li><strong>Minimum contribution:</strong> Annual Rs 15,000 · Semi-Annual Rs 10,000 · Quarterly Rs 5,000 · Monthly Rs 2,500</li>
+            <li><strong>Death benefit:</strong> Sum Cover plus declared bonuses from the PTEF, and in addition the carrying value of the PIEF is payable to the nominee</li>
+            <li><strong>Maturity benefit:</strong> Sum Cover and declared bonuses from the PTEF, in addition to the carrying value of the PIEF</li>
+            <li><strong>Supplementary Takaful benefits (riders):</strong> Accidental Death Benefit (ADB), Accidental Death and Indemnity Benefit (AIB), Family Income Benefit (FIB) and Term Takaful Rider — as the rate book notes, the contribution rates of supplementary Takaful contracts are the same as those of conventional business</li>
+            <li><strong>Unit allocations:</strong> 1st year 40% · 2nd year 80% · 3rd year 90% · 4th year onwards 100%</li>
+            <li><strong>Surplus sharing:</strong> any surplus is shared <strong>97.5% to participants as bonuses / 2.5% to the Operator&rsquo;s Shareholders Fund (OSF)</strong>, as printed in the rate book</li>
+            <li><strong>Partial withdrawal:</strong> available after two membership years, subject to the conditions in the membership documents</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>An example</strong> (computed from the rate book&rsquo;s table): at entry age 30 with a contribution paying term of 20 years, the table rate is Rs 47.53 per Rs 1,000 of Sum Cover — so for a Sum Cover of Rs 5,00,000, the annual contribution is 47.53 × 500 = <strong>Rs 23,765</strong>.</p>
+          </div>
+
+          <p class="note">Please note: declared bonuses are announced under the Takaful model and the investment fund value depends on investment performance, which is borne by the participant — actual values may be lower or higher than any illustration. No fixed or guaranteed amount or return is promised.</p>
+
+          <div class="cert-head">
+            <img src="assets/mufti-hassaan-kaleem.jpg" alt="Mufti Muhammad Hassaan Kaleem — Shariah Advisor, State Life Window Takaful Operations">
+            <div>
+              <p class="cert-caption">Shariah Compliance Certificate — Tayyab Takaful Endowment Plan</p>
+              <p class="cert-by">Signed by Mufti Muhammad Hassaan Kaleem, Shariah Advisor — State Life Window Takaful Operations</p>
+            </div>
+          </div>
+          <img class="certificate" src="assets/takaful-shariah-certificate.jpg" alt="Shariah Compliance Certificate — Tayyab Takaful Endowment Plan, State Life Insurance Corporation of Pakistan, Window Takaful Operations">
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/takaful-endowment-plan-calculator-xrxb6texlh8xf1xr" target="_blank" rel="noopener">Calculate Your Contribution</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="note">Note: The contribution shown by the calculator follows the rate book&rsquo;s contribution table for your age and contribution paying term, applied per Rs 1,000 of Sum Cover, on an annual basis. Final terms and conditions are as per the State Life Takaful membership documents.</p>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance · WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL CHILD EDUCATION & MARRIAGE PLAN ================= -->
+    <section class="view" data-view="takaful-child-education-marriage-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Child Education &amp; Marriage Plan</h1>
+          <p class="tagline">Shariah-Compliant Savings for Your Child&rsquo;s Education and Marriage</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#takaful-plans" data-nav="takaful-plans">&larr; All Takaful Plans</a>
+          <img class="poster" src="assets/takaful-child-education-poster.png" alt="Takaful Child Education &amp; Marriage Plan — poster">
+
+          <p>Takaful Child Education &amp; Marriage is a <strong>unit-linked, Shariah-compliant</strong> plan for building a lump sum for your child&rsquo;s education and marriage. The contribution level is <strong>chosen by you, the participant</strong>, and your contributions accumulate in the Participants Investment Fund (PIF). The plan is inspired by State Life&rsquo;s conventional Child Education and Marriage Plan (Table 76), in a Shariah-compliant Takaful form.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Contribution:</strong> chosen by the participant (level basic contribution) — no fixed rate table applies to this plan</li>
+            <li><strong>Participant entry age:</strong> 18 to 57 years</li>
+            <li><strong>Term:</strong> 10 to 30 years (maximum maturity age 67)</li>
+            <li><strong>Sum Cover:</strong> Basic Annual Contribution × term (see the book&rsquo;s example below)</li>
+            <li><strong>Minimum contribution:</strong> Annual Rs 15,000 · Semi-Annual Rs 10,000 · Quarterly Rs 5,000 · Monthly Rs 2,500</li>
+            <li><strong>If the participant passes away:</strong> the membership continues — subsequent regular contributions are <strong>waived</strong> (paid from the Participants Takaful Fund into the investment fund), so the planned savings for the child are still achieved, and the accumulated fund value is paid at maturity</li>
+            <li><strong>Maturity benefit:</strong> the accumulated value of the Participants Investment Fund</li>
+            <li><strong>Unit allocations:</strong> 1st year 40% · 2nd year 80% · 3rd year 90% · 4th year onwards 100%</li>
+            <li><strong>Partial withdrawal:</strong> available after the first membership year, at the latest NAV</li>
+            <li><strong>Surrender:</strong> 100% of the investment fund at the latest NAV, with <strong>no surrender charge</strong></li>
+            <li><strong>Surplus sharing:</strong> any surplus is shared through PIF units — <strong>80% to participants / 20% to the Operator&rsquo;s Shareholders Fund (OSF)</strong> as Modarib Fee, as printed in the rate book</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>The rate book&rsquo;s own example:</strong> a Basic Annual Contribution of Rs 50,000 with a term of 20 years gives a Sum Cover of Rs 50,000 × 20 = <strong>Rs 10,00,000</strong>.</p>
+          </div>
+
+          <p class="note">Please note: this is a unit-linked plan. The value of your investment fund depends on investment performance, and the investment risk is borne by the participant — actual maturity and surrender values may be lower or higher than any illustration. No fixed or guaranteed maturity amount or return is promised.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/takaful-child-education-marriage-plan-xpn6texfxdtxr8xr" target="_blank" rel="noopener">Calculate Your Contribution</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="note">Note: The Sum Cover shown by the calculator follows the rate book&rsquo;s formula (Basic Annual Contribution × term). Final terms and conditions are as per the State Life Takaful membership documents.</p>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance · WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL GOLDEN ENDOWMENT PLAN ================= -->
+    <section class="view" data-view="takaful-golden-endowment-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Golden Endowment Plan</h1>
+          <p class="tagline">20 Years of Cover — Contributions for Only 7 Years</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#takaful-plans" data-nav="takaful-plans">&larr; All Takaful Plans</a>
+          <img class="poster" src="assets/takaful-golden-endowment-poster.png" alt="Takaful Golden Endowment Plan — poster">
+
+          <p>Takaful Golden Endowment is a <strong>bonus-based, Shariah-compliant</strong> plan designed for those who want long-term protection without a long payment commitment: you pay contributions for only the <strong>first 7 years</strong>, while your cover — and your participation in the fund&rsquo;s surplus — continues for the full <strong>20-year</strong> coverage term.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Coverage term:</strong> 20 years (fixed)</li>
+            <li><strong>Contribution paying term:</strong> 7 years only — benefits and bonuses are based on the 20 coverage years, and the membership continues to participate in surplus after the 7-year contribution term; the bonuses announced for a 20-year Takaful Endowment plan apply to this plan</li>
+            <li><strong>Entry age:</strong> 20 to 55 years</li>
+            <li><strong>Contributions:</strong> calculated from the rate book&rsquo;s single rate table for your entry age, applied per Rs 1,000 of Sum Cover, and shown here on an annual basis</li>
+            <li><strong>Minimum annual contribution:</strong> Rs 15,000</li>
+            <li><strong>Death benefit:</strong> Sum Cover plus declared bonuses from the Participant Takaful Fund (PTF), and in addition the carrying value of the Participant Investment Fund (PIF) is payable to the nominee</li>
+            <li><strong>Maturity benefit:</strong> Sum Cover and declared bonuses from the PTF, in addition to the carrying value of the PIF</li>
+            <li><strong>Supplementary Takaful benefits (riders):</strong> Accidental Death Benefit (ADB) and Term Takaful Rider (TTR) — rider contributions are payable for seven years only while protection runs for the entire membership term; maximum rider entry age 55 years, and rider benefits cease at age 70</li>
+            <li><strong>Unit allocations:</strong> 1st year 70% · 2nd year 85% · 3rd year 90% · 4th year onwards 100%</li>
+            <li><strong>Surplus sharing:</strong> any surplus is shared <strong>97.5% to participants as bonuses / 2.5% to the Operator&rsquo;s Shareholders Fund (OSF)</strong>, as printed in the rate book</li>
+            <li><strong>Partial withdrawal:</strong> available after two membership years, subject to the conditions in the membership documents</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>An example</strong> (computed from the rate book&rsquo;s table): at entry age 30, the table rate is Rs 106.12 per Rs 1,000 of Sum Cover — so for a Sum Cover of Rs 5,00,000, the annual contribution is 106.12 × 500 = <strong>Rs 53,060</strong>, payable for 7 years only, while cover continues for 20 years.</p>
+          </div>
+
+          <p class="note">Please note: declared bonuses are announced under the Takaful model and the investment fund value depends on investment performance, which is borne by the participant — actual values may be lower or higher than any illustration. No fixed or guaranteed amount or return is promised.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/takaful-golden-endowment-plan-xsk6texjrxfxztxo" target="_blank" rel="noopener">Calculate Your Contribution</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="note">Note: The contribution shown by the calculator follows the rate book&rsquo;s contribution table for your entry age, applied per Rs 1,000 of Sum Cover, on an annual basis. Final terms and conditions are as per the State Life Takaful membership documents.</p>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance · WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL SAVINGS PLAN ================= -->
+    <section class="view" data-view="takaful-savings-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Savings Plan</h1>
+          <p class="tagline">Shariah-Compliant Savings with Life Protection</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#takaful-plans" data-nav="takaful-plans">&larr; All Takaful Plans</a>
+          <img class="poster" src="assets/takaful-savings-poster.png" alt="Takaful Savings Plan — poster">
+
+          <p>Takaful Savings is a <strong>unit-linked, Shariah-compliant</strong> plan in which <strong>you choose your own contribution level</strong>. Your contributions accumulate in the Participants Investment Fund (PIF), while the plan provides life protection throughout the term — savings growth and family protection in one membership.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Contribution:</strong> chosen by the participant (level basic contribution, payable throughout the term) — no fixed rate table applies to this plan</li>
+            <li><strong>Entry age:</strong> 18 to 56 years</li>
+            <li><strong>Term:</strong> 10 to 48 years (maximum maturity age 66)</li>
+            <li><strong>Sum Cover:</strong> Basic Annual Contribution × term (see the book&rsquo;s example below)</li>
+            <li><strong>Minimum basic contribution:</strong> Annual Rs 15,000 · Semi-Annual Rs 10,000 · Quarterly Rs 5,000 · Monthly Rs 2,500</li>
+            <li><strong>Death benefit:</strong> the higher of the Sum Cover or the Carrying Value of the Participants Investment Fund</li>
+            <li><strong>Fund choices:</strong> three Shariah-compliant funds — Conservative, Balanced and Aggressive — with free switching up to 3 times per membership year</li>
+            <li><strong>Surplus sharing:</strong> any surplus is shared through PIF units — <strong>80% to participants / 20% to the Operator&rsquo;s Shareholders Fund (OSF)</strong> as Modarib Fee, as printed in the rate book</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>The rate book&rsquo;s own example:</strong> a Basic Annual Contribution of Rs 50,000 with a term of 20 years gives a Sum Cover of Rs 50,000 × 20 = <strong>Rs 10,00,000</strong>.</p>
+          </div>
+
+          <p class="note">Please note: this is a unit-linked plan. The value of your investment fund depends on investment performance, and the investment risk is borne by the participant — actual maturity and surrender values may be lower or higher than any illustration. No fixed or guaranteed maturity amount or return is promised.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/takaful-savings-plan-calculator-xgxu6texg687ta" target="_blank" rel="noopener">Calculate Your Contribution</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="note">Note: The Sum Cover shown by the calculator follows the rate book&rsquo;s formula (Basic Annual Contribution × term). Final terms and conditions are as per the State Life Takaful membership documents.</p>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance · WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAKAFUL PLATINUM PLUS PLAN ================= -->
+    <section class="view" data-view="takaful-platinum-plus-plan">
+      <div class="page-head">
+        <div class="container">
+          <h1>Takaful Platinum Plus Plan</h1>
+          <p class="tagline">Shariah-Compliant Protection — Contribute for Only 3 Years, Covered for 10</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <a class="back-link" href="#takaful-plans" data-nav="takaful-plans">&larr; All Takaful Plans</a>
+          <img class="poster" src="assets/takaful-platinum-plus-poster.png" alt="Takaful Platinum Plus Plan — poster">
+
+          <p>Takaful Platinum Plus is a <strong>Shariah-compliant, bonus-based</strong> plan with a short contribution period: you contribute for <strong>only the first 3 years</strong>, while your coverage continues for <strong>10 years</strong> — and you remain eligible for bonuses even after the contribution term ends.</p>
+
+          <h2>Salient features</h2>
+          <ul>
+            <li><strong>Entry age:</strong> 1 to 60 years (maximum maturity age 70)</li>
+            <li><strong>Contribution paying term:</strong> 3 years only</li>
+            <li><strong>Coverage term:</strong> 10 years</li>
+            <li><strong>Contribution mode:</strong> Annual only</li>
+            <li><strong>Minimum contribution:</strong> Rs 65,000</li>
+            <li><strong>Contribution rates:</strong> fixed by the rate book per Rs 1,000 of Face Value, according to the participant&rsquo;s age (Annexure-A1)</li>
+            <li><strong>Death benefit:</strong> twice the Face Value plus declared bonuses, together with the carrying value of the investment fund — as described in the rate book</li>
+            <li><strong>Maturity benefit:</strong> Face Value plus declared bonuses, plus the carrying value of the investment fund and any declared surplus, if applicable</li>
+            <li><strong>Bonuses:</strong> declared at the 10-year Takaful Endowment bonus rates, with <strong>50% higher bonus rates</strong> for this plan, as printed in the rate book</li>
+            <li><strong>Unit allocations:</strong> 1st year 94% · 2nd year 97% · 3rd year 100%</li>
+            <li><strong>Rider:</strong> Accidental Death Benefit (ADB) only — maximum rider entry age 50; the ADB contribution is payable for 3 years while its protection runs for the entire membership term</li>
+            <li><strong>Surplus sharing:</strong> <strong>97.5% to participants as bonuses / 2.5% to the Operator&rsquo;s Shareholders Fund (OSF)</strong>, as printed in the rate book</li>
+          </ul>
+
+          <div class="example">
+            <p><strong>Example</strong> (computed from the book&rsquo;s rate table): at age 30, the book&rsquo;s contribution rate is Rs 291.23 per Rs 1,000 of Face Value. For a Face Value of Rs 500,000, the annual contribution is 291.23 × 500 = <strong>Rs 145,615</strong>, payable for 3 years only, with coverage for 10 years.</p>
+          </div>
+
+          <p class="note">Please note: bonuses and surplus are declared according to the fund&rsquo;s performance and the rate book&rsquo;s rules — they are not guaranteed in advance. Final benefits are as per the membership documents.</p>
+
+          <div class="cta-box">
+            <a class="btn btn-gold btn-large" href="https://muse.ai/s/takaful-platinum-plus-contribution-xhxt6texhxkjxvpr" target="_blank" rel="noopener">Calculate Your Contribution</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923363598210" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+
+          <p class="note">Note: The contribution shown by the calculator is computed from the rate book&rsquo;s Platinum Plus Contribution Rates (Annexure-A1). Final terms and conditions are as per the State Life Takaful membership documents.</p>
+
+          <p class="contact-line">For free advice, contact Ali Salman — Sales Manager, State Life Insurance · WhatsApp/Call: <a href="tel:+923363598210">0336-3598210</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="foot-name">Ali Salman <span>— Sales Manager, State Life Insurance</span></p>
+          <p>Life Insurance Consultant — Karachi, Pakistan</p>
+          <p>Call or WhatsApp: <a href="tel:+923363598210">0336-3598210</a></p>
+          <p><a href="https://www.youtube.com/channel/UCp9t9qunzooIxaZr7z1egow" target="_blank" rel="noopener">YouTube — Mr.Insurance pak</a> &middot; <a href="https://www.facebook.com/mr.insurance12/" target="_blank" rel="noopener">Facebook — Mr Insurance 12</a> &middot; <a href="https://maps.app.goo.gl/YRR2cD9aTf6h1jiX6?g_st=awb" target="_blank" rel="noopener">Google Maps</a></p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-nav">
+            <li><a href="#home" data-nav="home">Home</a></li>
+            <li><a href="#conventional-plans" data-nav="conventional-plans">Conventional Plans</a></li>
+            <li><a href="#takaful-plans" data-nav="takaful-plans">Takaful Plans</a></li>
+            <li><a href="#join-our-team" data-nav="join-our-team">Join Our Team</a></li>
+            <li><a href="#about" data-nav="about">About</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-logo">
+        <span class="logo-chip logo-chip--footer"><img src="assets/state-life-logo.png" alt="State Life Insurance Corporation of Pakistan" width="1080" height="1080"></span>
+      </div>
+      <p class="disclaimer">This is Ali Salman&rsquo;s personal professional website. It is not the official website of State Life Insurance Corporation of Pakistan. All plan terms and benefits are as per the official policy documents.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var VIEWS = ["home", "conventional-plans", "takaful-plans", "join-our-team",
+      "endowment-plan", "child-education-marriage-plan", "jeevan-sathi-plan", "golden-endowment-plan",
+      "whole-life-plan", "platinum-plus-plan", "titanium-plan", "titanium-plus-plan", "titanium-elite-plan",
+      "takaful-endowment-plan", "takaful-child-education-marriage-plan", "takaful-golden-endowment-plan",
+      "takaful-savings-plan", "takaful-platinum-plus-plan"];
+    var PLAN_VIEWS = { "endowment-plan": 1, "child-education-marriage-plan": 1, "jeevan-sathi-plan": 1, "golden-endowment-plan": 1,
+      "whole-life-plan": 1, "platinum-plus-plan": 1, "titanium-plan": 1, "titanium-plus-plan": 1, "titanium-elite-plan": 1 };
+    var TAKAFUL_VIEWS = { "takaful-endowment-plan": 1, "takaful-child-education-marriage-plan": 1, "takaful-golden-endowment-plan": 1,
+      "takaful-savings-plan": 1, "takaful-platinum-plus-plan": 1 };
+    var TITLES = {
+      "home": "Mr Insurance — Ali Salman, Sales Manager, State Life Insurance",
+      "conventional-plans": "Conventional Plans — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-plans": "Takaful Plans — Mr Insurance | Ali Salman, State Life Insurance",
+      "join-our-team": "Join Our Team — Mr Insurance | Ali Salman, State Life Insurance",
+      "endowment-plan": "Endowment Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "child-education-marriage-plan": "Child Education & Marriage Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "jeevan-sathi-plan": "Jeevan Sathi Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "golden-endowment-plan": "Golden Endowment Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "whole-life-plan": "Whole Life Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "platinum-plus-plan": "Platinum Plus Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "titanium-plan": "Titanium Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "titanium-plus-plan": "Titanium Plus Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "titanium-elite-plan": "Titanium Elite Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-endowment-plan": "Takaful Endowment Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-child-education-marriage-plan": "Takaful Child Education & Marriage Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-golden-endowment-plan": "Takaful Golden Endowment Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-savings-plan": "Takaful Savings Plan — Mr Insurance | Ali Salman, State Life Insurance",
+      "takaful-platinum-plus-plan": "Takaful Platinum Plus Plan — Mr Insurance | Ali Salman, State Life Insurance"
+    };
+    var nav = document.querySelector(".main-nav");
+    var toggle = document.querySelector(".nav-toggle");
+
+    function currentView() {
+      var h = (window.location.hash || "").replace(/^#/, "");
+      if (h === "about") return "about";
+      if (VIEWS.indexOf(h) !== -1) return h;
+      return "home";
+    }
+
+    function show(route) {
+      var target = route === "about" ? "home" : route;
+      var sections = document.querySelectorAll(".view");
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].classList.toggle("active", sections[i].getAttribute("data-view") === target);
+      }
+      var activeKey = route === "about" ? "about" : (PLAN_VIEWS[target] ? "conventional-plans" : (TAKAFUL_VIEWS[target] ? "takaful-plans" : target));
+      var links = document.querySelectorAll(".main-nav a");
+      for (var j = 0; j < links.length; j++) {
+        links[j].classList.toggle("active", links[j].getAttribute("data-nav") === activeKey);
+      }
+      document.title = TITLES[target];
+      if (route === "about") {
+        var aboutEl = document.getElementById("about");
+        if (aboutEl) aboutEl.scrollIntoView();
+      } else {
+        window.scrollTo(0, 0);
+      }
+      if (nav) nav.classList.remove("open");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    }
+
+    window.addEventListener("hashchange", function () { show(currentView()); });
+    show(currentView());
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        var open = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
