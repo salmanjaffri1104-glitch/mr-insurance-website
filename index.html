@@ -579,6 +579,9 @@ a { color: var(--navy); }
   color: #93A5B8;
 }
   </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0A2A4A">
+<link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
 
@@ -1777,5 +1780,6 @@ a { color: var(--navy); }
     }
   })();
   </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>
