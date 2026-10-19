@@ -657,6 +657,65 @@ a { color: var(--navy); }
   box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.25);
 }
 .ask-card .btn { width: 100%; border: none; cursor: pointer; font-family: inherit; text-align: center; }
+/* ---------- FAQ (accordion) ---------- */
+.faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 0.8rem; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--gold);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: left;
+  padding: 1.05rem 1.3rem;
+}
+.faq-q .faq-icon {
+  flex-shrink: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy-dark);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.3rem 1.15rem; color: var(--muted); }
+.faq-a[hidden] { display: none; }
+.faq-note { text-align: center; color: var(--muted); max-width: 640px; margin: 1.6rem auto 0; }
+/* ---------- Customer Reviews ---------- */
+.review-grid { display: grid; gap: 1.2rem; max-width: 880px; margin: 0 auto; }
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--gold);
+  padding: 1.7rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.review-stars { color: var(--gold); font-size: 1.35rem; letter-spacing: 0.25rem; line-height: 1; }
+.review-text { color: var(--ink); font-size: 1.05rem; flex: 1; }
+.review-name { color: var(--navy); font-weight: 800; font-size: 1.05rem; }
+.review-tag { color: var(--muted); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A2A4A">
@@ -758,6 +817,92 @@ a { color: var(--navy); }
             <a class="btn btn-gold" href="https://www.youtube.com/channel/UCp9t9qunzooIxaZr7z1egow" target="_blank" rel="noopener">YouTube — Mr.Insurance pak</a>
             <a class="btn btn-navy" href="https://www.facebook.com/mr.insurance12/" target="_blank" rel="noopener">Facebook — Mr Insurance 12</a>
           </div>
+        </div>
+      </div>
+<div class="section">
+        <div class="container">
+          <h2>What Our Customers Say</h2>
+          <p class="lead">Hamare customers Google par kya kehte hain — asal reviews, baghair kisi tabdeeli ke.</p>
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review-text">Thank you so much Salman jaffari give good solutions I'm very happy u ur great 👍</p>
+              <p class="review-name">Manzar Ali</p>
+              <p class="review-tag">Google Review</p>
+            </article>
+            <article class="review-card">
+              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review-text">He's serving me as an agent since 2 years. Very cooperative and nice man</p>
+              <p class="review-name">Fatima Qureshi</p>
+              <p class="review-tag">Google Review</p>
+            </article>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-gold btn-large" href="https://maps.app.goo.gl/YRR2cD9aTf6h1jiX6?g_st=awb" target="_blank" rel="noopener">Google Par Review Parhein / Likhein</a>
+          </div>
+        </div>
+      </div>
+<div class="section">
+        <div class="container">
+          <h2>Frequently Asked Questions</h2>
+          <p class="lead">Common questions about life insurance, answered honestly.</p>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">How is my premium calculated?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>It depends on your age, the plan, the term and the Sum Assured you choose. Use the free calculator on the plan&rsquo;s page to see your exact premium.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">What is Sum Assured?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>The basic cover amount your policy is issued for. With-profit plans can also earn bonuses declared by State Life, which increase the payable amount over time.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">What is a bonus? Is it guaranteed?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>State Life shares its surplus with with-profit policyholders as bonus, declared after its valuations. Bonus rates vary from year to year and are not guaranteed in advance — the Bonus Illustration tool on this website shows an estimate on the latest declared rates.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">What happens if I miss a premium?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>There is a grace period after the due date. If it passes unpaid, the policy can lapse, but lapsed policies can usually be revived under State Life rules — contact us quickly for guidance.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">Can I surrender my policy early?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>Policies acquire a surrender value under State Life rules after premiums have been paid for the required period. The exact value is worked out from your policy&rsquo;s own cash value, so ask us for your exact figure.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">How does a claim work?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>Inform us or State Life, submit the required documents, and State Life settles the claim after verification. Ali Salman personally guides his clients through every step, from intimation to payment.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">What documents do I need to buy a policy?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>Your CNIC copy, a completed proposal form and proof of age; a medical examination is needed only where State Life&rsquo;s underwriting requires it.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">How is Takaful different?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>Takaful is the Shariah-compliant alternative based on mutual cooperation and shared responsibility, run under a Shariah advisor — see the Takaful plans and the Shariah Compliance Certificate on this website.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">How do I choose the right plan?<span class="faq-icon" aria-hidden="true">+</span></button>
+              <div class="faq-a" hidden>
+                <p>It depends on your goal — children&rsquo;s education, savings, family protection or a single-premium investment — and your budget. Try the calculators, or ask on WhatsApp for free, personal advice.</p>
+              </div>
+            </div>
+          </div>
+          <p class="faq-note">Your question not here? Ask it below on WhatsApp.</p>
         </div>
       </div>
 <div class="section">
@@ -2037,6 +2182,26 @@ a { color: var(--navy); }
           ? "Assalam o Alaikum! Mera naam " + name + " hai. Mera sawal: " + question
           : "Assalam o Alaikum! Mera sawal: " + question;
         window.open("https://wa.me/923363598210?text=" + encodeURIComponent(msg), "_blank");
+      });
+    }
+  
+    var faqButtons = document.querySelectorAll(".faq-q");
+    for (var f = 0; f < faqButtons.length; f++) {
+      faqButtons[f].addEventListener("click", function () {
+        var item = this.parentNode;
+        var answer = item.querySelector(".faq-a");
+        var wasOpen = item.classList.contains("open");
+        var openItems = document.querySelectorAll(".faq-item.open");
+        for (var k = 0; k < openItems.length; k++) {
+          openItems[k].classList.remove("open");
+          openItems[k].querySelector(".faq-a").hidden = true;
+          openItems[k].querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        }
+        if (!wasOpen) {
+          item.classList.add("open");
+          answer.hidden = false;
+          this.setAttribute("aria-expanded", "true");
+        }
       });
     }
   })();
