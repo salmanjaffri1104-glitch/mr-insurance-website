@@ -621,6 +621,42 @@ a { color: var(--navy); }
   justify-items: center;
 }
 .bonus-top p { margin: 0; font-size: 1.08rem; font-weight: 600; }
+/* ---------- Ask a Question (WhatsApp form) ---------- */
+.ask-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--gold);
+  padding: 1.8rem 1.6rem;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+}
+.ask-field { margin-bottom: 1.1rem; }
+.ask-field label {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.ask-field label .optional { color: var(--muted); font-weight: 600; font-size: 0.9rem; }
+.ask-field input, .ask-field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid #C4D2DF;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+}
+.ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--gold); }
+.ask-field textarea { resize: vertical; min-height: 110px; }
+.ask-field .field-error {
+  border-color: #D64545 !important;
+  background: #FDF0F0;
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.25);
+}
+.ask-card .btn { width: 100%; border: none; cursor: pointer; font-family: inherit; text-align: center; }
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A2A4A">
@@ -722,6 +758,23 @@ a { color: var(--navy); }
             <a class="btn btn-gold" href="https://www.youtube.com/channel/UCp9t9qunzooIxaZr7z1egow" target="_blank" rel="noopener">YouTube — Mr.Insurance pak</a>
             <a class="btn btn-navy" href="https://www.facebook.com/mr.insurance12/" target="_blank" rel="noopener">Facebook — Mr Insurance 12</a>
           </div>
+        </div>
+      </div>
+<div class="section">
+        <div class="container">
+          <h2>Ask a Question</h2>
+          <p class="lead">Public comment ki jagah seedha sawal karein — jawab aap ko WhatsApp par mile ga.</p>
+          <form class="ask-card" id="ask-form" novalidate>
+            <div class="ask-field">
+              <label for="ask-name">Your Name <span class="optional">(optional)</span></label>
+              <input type="text" id="ask-name" name="name" autocomplete="name" placeholder="e.g. Muhammad Ahmed">
+            </div>
+            <div class="ask-field">
+              <label for="ask-question">Your Question</label>
+              <textarea id="ask-question" name="question" rows="4" placeholder="Apna sawal yahan likhein…"></textarea>
+            </div>
+            <button type="button" class="btn btn-whatsapp btn-large" id="ask-send">Send on WhatsApp</button>
+          </form>
         </div>
       </div>
 
@@ -1961,6 +2014,29 @@ a { color: var(--navy); }
       toggle.addEventListener("click", function () {
         var open = nav.classList.toggle("open");
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  
+    var askSend = document.getElementById("ask-send");
+    var askName = document.getElementById("ask-name");
+    var askQuestion = document.getElementById("ask-question");
+    if (askSend && askQuestion) {
+      askQuestion.addEventListener("input", function () {
+        askQuestion.classList.remove("field-error");
+      });
+      askSend.addEventListener("click", function () {
+        var question = askQuestion.value.replace(/^\s+|\s+$/g, "");
+        if (!question) {
+          askQuestion.classList.add("field-error");
+          askQuestion.focus();
+          return;
+        }
+        askQuestion.classList.remove("field-error");
+        var name = askName ? askName.value.replace(/^\s+|\s+$/g, "") : "";
+        var msg = name
+          ? "Assalam o Alaikum! Mera naam " + name + " hai. Mera sawal: " + question
+          : "Assalam o Alaikum! Mera sawal: " + question;
+        window.open("https://wa.me/923363598210?text=" + encodeURIComponent(msg), "_blank");
       });
     }
   })();
