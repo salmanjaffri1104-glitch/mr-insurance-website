@@ -140,29 +140,58 @@
         gap: 12px;
         padding: 22px 22px 4px;
       }
+      @keyframes btn-float {
+        from { transform: translateY(-3px); }
+        to { transform: translateY(3px); }
+      }
       .cta a {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 9px;
         min-height: 54px;
-        border-radius: 14px;
+        border-radius: 999px;
         font-weight: 800;
         font-size: 1rem;
         text-decoration: none;
-        transition: transform 0.12s ease, filter 0.12s ease;
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.45),
+          inset 0 -4px 0 rgba(0, 0, 0, 0.14),
+          0 6px 0 var(--btn-edge, #071E36),
+          0 16px 26px rgba(10, 42, 74, 0.38);
+        transition: box-shadow 0.15s ease, background 0.12s ease, transform 0.15s ease;
+        animation: btn-float 3s ease-in-out infinite alternate;
       }
-      .cta a:active { transform: scale(0.97); }
+      .cta a:hover {
+        animation-play-state: paused;
+        transform: translateY(-3px) scale(1.03);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.5),
+          inset 0 -4px 0 rgba(0, 0, 0, 0.14),
+          0 9px 0 var(--btn-edge, #071E36),
+          0 24px 36px rgba(10, 42, 74, 0.48);
+      }
+      .cta a:active {
+        animation-play-state: paused;
+        transform: translateY(2px) scale(0.99);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.14),
+          0 2px 0 var(--btn-edge, #071E36),
+          0 8px 14px rgba(10, 42, 74, 0.3);
+      }
       .cta .call {
-        background: linear-gradient(160deg, var(--gold-bright), var(--gold));
-        color: #231a02;
-        box-shadow: 0 8px 20px rgba(201, 162, 39, 0.35);
+        --btn-edge: #8A6D1F;
+        background: #C7A23A;
+        color: #071E36;
       }
+      .cta .call:hover { background: #A98829; color: #FFFFFF; }
       .cta .whatsapp {
-        background: var(--wa-green);
+        --btn-edge: #128C4B;
+        background: #25D366;
         color: #ffffff;
-        box-shadow: 0 8px 20px rgba(31, 170, 85, 0.32);
       }
+      .cta .whatsapp:hover { background: #1DA851; }
       .cta svg { width: 22px; height: 22px; flex: none; }
 
       .phone-line {
@@ -200,15 +229,39 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        padding: 11px 10px;
-        border-radius: 14px;
+        padding: 11px 18px 11px 10px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
         text-decoration: none;
         color: var(--ink-on-navy);
-        border-bottom: 1px solid var(--row-line);
-        transition: background 0.12s ease;
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.14),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+          0 5px 0 #04101E,
+          0 12px 20px rgba(0, 0, 0, 0.35);
+        transition: background 0.12s ease, transform 0.15s ease, box-shadow 0.15s ease;
+        animation: btn-float 3s ease-in-out infinite alternate;
       }
-      .row:last-child { border-bottom: none; }
-      .row:hover, .row:active { background: var(--row-hover); }
+      .row:hover {
+        background: rgba(255, 255, 255, 0.11);
+        animation-play-state: paused;
+        transform: translateY(-2px) scale(1.01);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.18),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+          0 8px 0 #04101E,
+          0 18px 28px rgba(0, 0, 0, 0.4);
+      }
+      .row:active {
+        animation-play-state: paused;
+        transform: translateY(2px);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.12),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.18),
+          0 2px 0 #04101E,
+          0 6px 12px rgba(0, 0, 0, 0.3);
+      }
       .icon-box {
         width: 46px; height: 46px;
         flex: none;
@@ -255,7 +308,7 @@
       .save-btn {
         width: 100%;
         min-height: 52px;
-        border-radius: 14px;
+        border-radius: 999px;
         border: 1.5px solid var(--gold);
         background: transparent;
         color: var(--gold-bright);
@@ -268,10 +321,33 @@
         align-items: center;
         justify-content: center;
         gap: 9px;
-        transition: background 0.12s ease, transform 0.12s ease;
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.14),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.14),
+          0 6px 0 #8A6D1F,
+          0 14px 22px rgba(0, 0, 0, 0.35);
+        transition: background 0.12s ease, transform 0.15s ease, box-shadow 0.15s ease;
+        animation: btn-float 3s ease-in-out infinite alternate;
       }
-      .save-btn:hover { background: rgba(201, 162, 39, 0.12); }
-      .save-btn:active { transform: scale(0.98); }
+      .save-btn:hover {
+        background: rgba(201, 162, 39, 0.12);
+        animation-play-state: paused;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.18),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.14),
+          0 9px 0 #8A6D1F,
+          0 20px 30px rgba(0, 0, 0, 0.4);
+      }
+      .save-btn:active {
+        animation-play-state: paused;
+        transform: translateY(2px);
+        box-shadow:
+          inset 0 2px 0 rgba(255, 255, 255, 0.12),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.14),
+          0 2px 0 #8A6D1F,
+          0 8px 14px rgba(0, 0, 0, 0.3);
+      }
       .save-btn svg { width: 20px; height: 20px; }
       .toast {
         text-align: center;
