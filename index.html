@@ -742,15 +742,6 @@ a { color: var(--navy); }
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A2A4A">
 <link rel="apple-touch-icon" href="icon-192.png">
-<!-- Google tag (gtag.js) — Google Ads conversion tracking, added 7 Nov 2026 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18501125572"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18501125572');
-</script>
 </head>
 <body>
 
@@ -843,13 +834,10 @@ a { color: var(--navy); }
       <div class="section" id="pay-premium">
         <div class="container">
           <h2>Pay Your Premium Online</h2>
-          <p class="lead">Apni State Life policy ka premium online ada karein — ePay par Policy Number dalen aur foran pay karein, ya KuickPay ke zariye apni bank app se ada karein. ePay par apni policy ka status aur last payment bhi check kar sakte hain — sirf Policy Number chahiye. Raast QR Code se bhi payment kar sakte hain, kisi bhi bank app se scan karein.</p>
+          <p class="lead">Apni State Life policy ka premium online ada karein — Policy Number dalen aur foran pay karein. Raast QR Code se bhi payment kar sakte hain, kisi bhi bank app se scan karein. Aap State Life ki official payment website par jayenge.</p>
           <div class="btn-row">
-            <a class="btn btn-gold btn-large" href="https://epay.statelife.com.pk/ords/dgpay/r/digital-payments/epay-new-page" target="_blank" rel="noopener">ePay se Ada Karein</a>
-            <a class="btn btn-navy btn-large" href="https://www.kuickpay.com/" target="_blank" rel="noopener">KuickPay se Ada Karein</a>
+            <a class="btn btn-gold btn-large" href="https://epay.statelife.com.pk/ords/dgpay/r/digital-payments/epay-new-page" target="_blank" rel="noopener">Premium Online Ada Karein</a>
           </div>
-          <p class="lead" style="margin-top:1.5rem;margin-bottom:0">KuickPay se pay karne ke 3 asaan steps: (1) mobile banking app mein log in karein, (2) payment option mein Kuickpay select karein, (3) voucher number 13050 + policy number likhein. Confirmation SMS 8057 se ayega.</p>
-          <img class="poster" style="max-width:420px;display:block;margin:1.5rem auto 0" src="kuickpay-post-2026-11-05.png" alt="KuickPay se State Life premium ada karein — 3 asaan steps">
         </div>
       </div>
 
@@ -2677,6 +2665,15 @@ function runCalc(slug){
     }
   }catch(e){ showOut(slug,'Something went wrong — please check the values and try again.',1); }
 }
+</script>
+
+<!-- Google Ads Contact conversion: WhatsApp/Call clicks -->
+<script>
+  document.querySelectorAll('a[href*="wa.me"], a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      gtag('event', 'conversion', {'send_to': 'AW-18501125572/6iu6CNank7MdEMSLg_ZE'});
+    });
+  });
 </script>
 
 </body>
