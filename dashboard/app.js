@@ -159,6 +159,7 @@
     sessionStorage.removeItem(TOKEN_KEY);
     $('app').hidden = true;
     $('login-screen').hidden = false;
+    $('login-screen').style.display = '';
     window.scrollTo(0, 0);
     var err = $('login-error');
     if (message) { err.textContent = message; err.hidden = false; }
@@ -169,6 +170,9 @@
 
   function showApp() {
     $('login-screen').hidden = true;
+    // Inline hide: works even if the browser still holds an old styles.css
+    // in cache (its display:flex used to override the [hidden] attribute).
+    $('login-screen').style.display = 'none';
     $('app').hidden = false;
     window.scrollTo(0, 0);
   }
