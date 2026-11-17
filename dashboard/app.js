@@ -159,6 +159,7 @@
     sessionStorage.removeItem(TOKEN_KEY);
     $('app').hidden = true;
     $('login-screen').hidden = false;
+    window.scrollTo(0, 0);
     var err = $('login-error');
     if (message) { err.textContent = message; err.hidden = false; }
     else { err.hidden = true; }
@@ -169,6 +170,7 @@
   function showApp() {
     $('login-screen').hidden = true;
     $('app').hidden = false;
+    window.scrollTo(0, 0);
   }
 
   async function tryResumeSession() {
