@@ -39,6 +39,7 @@ input, select { font: inherit; }
   padding: 20px;
   background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
 }
+.login-screen[hidden] { display: none; }
 .login-card {
   background: var(--card);
   border-radius: 16px;
