@@ -6,6 +6,260 @@
   <title>مہینے کے 5000 والا پلان — Mr Insurance | علی سلمان، اسٹیٹ لائف انشورنس</title>
   <meta name="description" content="روز کے صرف 166 روپے — خاندان کی پوری حفاظت۔ Endowment Plan (Table 03): 10 لاکھ کا تحفظ، مہینہ صرف 4,322 روپے (عمر 30، مدت 20 سال)۔ علی سلمان: 0336-3598210۔">
   <link rel="stylesheet" href="/styles.css">
+<style>
+/* Inline copy of the site theme so landing pages look right even if the live stylesheet differs */
+/* Mr Insurance — Ali Salman, Sales Manager, State Life Insurance
+   Palette: deep navy #0A2A4A · gold #C7A23A · light grey #F4F7FA · WhatsApp green #25D366 (WhatsApp buttons only) */
+
+:root {
+  --navy: #0A2A4A;
+  --navy-dark: #071E36;
+  --gold: #C7A23A;
+  --gold-dark: #A98829;
+  --grey-bg: #F4F7FA;
+  --ink: #1C2733;
+  --muted: #55606C;
+  --whatsapp: #25D366;
+  --whatsapp-dark: #1DA851;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --shadow: 0 4px 18px rgba(10, 42, 74, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--navy); }
+
+.container { width: min(1080px, 92%); margin: 0 auto; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--navy);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+}
+.brand {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
+}
+.brand span { color: var(--gold); display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
+.nav-toggle {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+.main-nav { display: none; }
+.main-nav.open { display: block; }
+.main-nav ul { list-style: none; padding: 0 0 0.9rem; }
+.main-nav a {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.55rem 0.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.main-nav a:hover, .main-nav a.active { color: var(--gold); }
+
+@media (min-width: 820px) {
+  .nav-toggle { display: none; }
+  .main-nav { display: block; }
+  .main-nav ul { display: flex; gap: 1.6rem; padding: 0; }
+  .main-nav a { border-bottom: none; padding: 0.3rem 0; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  padding: 2.6rem 0 3rem;
+  text-align: center;
+}
+.hero .eyebrow {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.hero .sub { color: #D7E1EC; max-width: 640px; margin: 0 auto 1.6rem; font-size: 1.08rem; }
+.hero-photo {
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  margin: 0 auto 1.6rem;
+  box-shadow: var(--shadow);
+}
+.ticks {
+  list-style: none;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+.ticks li { padding: 0.35rem 0 0.35rem 2rem; position: relative; font-weight: 600; }
+.ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  background: var(--gold);
+  color: var(--navy-dark);
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ---------- Buttons ---------- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+.btn-whatsapp:hover { background: var(--whatsapp-dark); }
+.btn-call { background: var(--white); color: var(--navy); border: 2px solid var(--gold); }
+.btn-call:hover { background: var(--gold); color: var(--navy-dark); }
+.btn-gold { background: var(--gold); color: var(--navy-dark); }
+.btn-gold:hover { background: var(--gold-dark); color: var(--white); }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn-navy:hover { background: var(--navy-dark); color: var(--gold); }
+.btn-large { font-size: 1.15rem; padding: 1rem 2.2rem; }
+
+/* ---------- Sections & cards ---------- */
+.section { padding: 3rem 0; }
+.section-grey { background: var(--grey-bg); }
+.section h2 {
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin-bottom: 0.6rem;
+}
+.section .lead { text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 2rem; }
+
+.cards { display: grid; gap: 1.2rem; }
+@media (min-width: 760px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  border-top: 5px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.card h3 { color: var(--navy); font-size: 1.3rem; }
+.card p { color: var(--muted); flex: 1; }
+
+.plan-list { display: grid; gap: 1rem; max-width: 640px; margin: 0 auto; }
+.plan-list .btn { text-align: center; }
+
+/* ---------- Content pages ---------- */
+.page-head {
+  background: var(--grey-bg);
+  border-bottom: 3px solid var(--gold);
+  padding: 2.2rem 0 1.8rem;
+  text-align: center;
+}
+.page-head h1 { color: var(--navy); font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
+.page-head .tagline { color: var(--gold-dark); font-weight: 700; font-size: 1.1rem; margin-top: 0.3rem; }
+
+.content { padding: 2.4rem 0 3rem; }
+.content .poster {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 0 auto 2rem;
+  max-width: 680px;
+  width: 100%;
+}
+.content h2 { color: var(--navy); font-size: 1.35rem; margin: 1.8rem 0 0.6rem; }
+.content p { margin-bottom: 1rem; }
+.content ul, .content ol { margin: 0 0 1rem 1.4rem; }
+.content li { margin-bottom: 0.45rem; }
+.content .example {
+  background: var(--grey-bg);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.6rem 0;
+}
+.content .note { color: var(--muted); font-size: 0.95rem; font-style: italic; }
+.content .contact-line { font-weight: 700; color: var(--navy); text-align: center; margin-top: 1.6rem; }
+.cta-box { text-align: center; margin: 2.2rem 0 0.6rem; display: grid; gap: 0.9rem; justify-items: center; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--navy-dark);
+  color: #C9D5E2;
+  padding: 2.4rem 0 1.8rem;
+  margin-top: 0;
+}
+.site-footer .foot-name { color: var(--white); font-size: 1.2rem; font-weight: 700; }
+.site-footer .foot-name span { color: var(--gold); }
+.site-footer a { color: var(--gold); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.footer-grid { display: grid; gap: 1.4rem; margin-bottom: 1.6rem; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-nav { list-style: none; }
+.footer-nav li { margin-bottom: 0.4rem; }
+.disclaimer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.2rem;
+  font-size: 0.86rem;
+  color: #93A5B8;
+}
+
+</style>
 </head>
 <body>
 
