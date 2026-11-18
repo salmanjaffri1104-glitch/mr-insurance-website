@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مہینے کے 5000 والا پلان — Mr Insurance | علی سلمان، اسٹیٹ لائف انشورنس</title>
   <meta name="description" content="روز کے صرف 166 روپے — خاندان کی پوری حفاظت۔ Endowment Plan (Table 03): 10 لاکھ کا تحفظ، مہینہ صرف 4,322 روپے (عمر 30، مدت 20 سال)۔ علی سلمان: 0336-3598210۔">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -89,6 +89,17 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script>
+  // Mobile navigation toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggle = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".main-nav");
+    if (!toggle || !nav) return;
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  </script>
 </body>
 </html>

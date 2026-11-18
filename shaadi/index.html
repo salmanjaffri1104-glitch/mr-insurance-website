@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بیٹی کی شادی — Mr Insurance | علی سلمان، اسٹیٹ لائف انشورنس</title>
   <meta name="description" content="بیٹی کی شادی کی تیاری آج سے — Child Education & Marriage Plan (Table 76)۔ مثال: والد 30 سال، بیٹی 5 سال، رقم 5 لاکھ — مہینہ صرف 2,165 روپے۔ علی سلمان: 0336-3598210۔">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -87,6 +87,17 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script>
+  // Mobile navigation toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggle = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".main-nav");
+    if (!toggle || !nav) return;
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  </script>
 </body>
 </html>
