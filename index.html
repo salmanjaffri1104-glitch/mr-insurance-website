@@ -298,7 +298,12 @@ a { color: var(--navy); }
 }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
 .btn-row + .btn-row { margin-top: 1rem; }
+.watch-videos .btn-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+.watch-videos .btn-row .btn { justify-self: center; text-align: center; }
 .watch-videos .btn-row + .btn-row { margin-top: 1.75rem; }
+@media (max-width: 640px) {
+  .watch-videos .btn-row { grid-template-columns: 1fr; }
+}
 .btn {
   --btn-edge: #071E36;
   display: inline-block;
