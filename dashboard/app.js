@@ -165,6 +165,8 @@
     if (message) { err.textContent = message; err.hidden = false; }
     else { err.hidden = true; }
     $('login-password').value = '';
+    $('login-password').type = 'password';
+    $('show-password').checked = false;
     $('login-password').focus();
   }
 
@@ -528,6 +530,13 @@
   // ---------- events --------------------------------------------------------
 
   function bindEvents() {
+    // "Password dikhayein" tick — code likhte waqt dikhaye taake ghalat
+    // type hone par pata chal jaye; login screen khulte hi phir chhupa de.
+    $('show-password').addEventListener('change', function () {
+      $('login-password').type = this.checked ? 'text' : 'password';
+      $('login-password').focus();
+    });
+
     $('login-form').addEventListener('submit', async function (ev) {
       ev.preventDefault();
       var code = $('login-password').value;
