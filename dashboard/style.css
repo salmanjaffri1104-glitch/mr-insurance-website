@@ -78,12 +78,17 @@ input, select { font: inherit; }
   margin: 0 0 12px;
   font-size: 14px;
 }
-.show-password {
-  display: flex; align-items: center; gap: 8px;
-  font-weight: 600; font-size: 14px;
-  margin-bottom: 12px; cursor: pointer;
+.password-field { position: relative; margin-bottom: 12px; }
+.password-field input { margin-bottom: 0; padding-right: 44px; }
+.password-eye {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  background: none; border: 0; padding: 6px; cursor: pointer;
+  color: var(--muted); display: flex; align-items: center; justify-content: center;
 }
-.show-password input { width: auto; margin-bottom: 0; }
+.password-eye svg { width: 22px; height: 22px; }
+.password-eye .eye-closed { display: none; }
+.password-field.show .eye-open { display: none; }
+.password-field.show .eye-closed { display: block; }
 .login-note { color: var(--muted); font-size: 13px; margin: 16px 0 0; }
 
 /* ---------- header / tabs ---------- */

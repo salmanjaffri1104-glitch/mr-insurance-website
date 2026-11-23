@@ -166,7 +166,8 @@
     else { err.hidden = true; }
     $('login-password').value = '';
     $('login-password').type = 'password';
-    $('show-password').checked = false;
+    $('login-password').closest('.password-field').classList.remove('show');
+    $('toggle-password').setAttribute('aria-label', 'Password dikhayein');
     $('login-password').focus();
   }
 
@@ -530,11 +531,15 @@
   // ---------- events --------------------------------------------------------
 
   function bindEvents() {
-    // "Password dikhayein" tick — code likhte waqt dikhaye taake ghalat
-    // type hone par pata chal jaye; login screen khulte hi phir chhupa de.
-    $('show-password').addEventListener('change', function () {
-      $('login-password').type = this.checked ? 'text' : 'password';
-      $('login-password').focus();
+    // Aankh wala button — box ke andar, password dikhaye/chhupaye.
+    // Login screen khulte hi password phir chhupa diya jata hai.
+    $('toggle-password').addEventListener('click', function () {
+      var pw = $('login-password');
+      var show = pw.type === 'password';
+      pw.type = show ? 'text' : 'password';
+      this.closest('.password-field').classList.toggle('show', show);
+      this.setAttribute('aria-label', show ? 'Password chhupayein' : 'Password dikhayein');
+      pw.focus();
     });
 
     $('login-form').addEventListener('submit', async function (ev) {
