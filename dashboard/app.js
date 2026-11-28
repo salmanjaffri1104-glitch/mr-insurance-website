@@ -166,7 +166,7 @@
     else { err.hidden = true; }
     $('login-password').value = '';
     $('login-password').type = 'password';
-    $('login-password').closest('.password-field').classList.remove('show');
+    $('toggle-password').closest('.password-field').classList.remove('show');
     $('toggle-password').setAttribute('aria-label', 'Password dikhayein');
     $('login-password').focus();
   }
@@ -531,7 +531,7 @@
   // ---------- events --------------------------------------------------------
 
   function bindEvents() {
-    // Aankh wala button — box ke andar, password dikhaye/chhupaye.
+    // Aankh wala button — password box ke ANDAR, koi text nahi.
     // Login screen khulte hi password phir chhupa diya jata hai.
     $('toggle-password').addEventListener('click', function () {
       var pw = $('login-password');
