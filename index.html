@@ -679,7 +679,7 @@ a { color: var(--navy); }
   margin-bottom: 0.4rem;
 }
 .ask-field label .optional { color: var(--muted); font-weight: 600; font-size: 0.9rem; }
-.ask-field input, .ask-field textarea {
+.ask-field input, .ask-field textarea, .ask-field select {
   width: 100%;
   font: inherit;
   color: var(--ink);
@@ -688,7 +688,18 @@ a { color: var(--navy); }
   border-radius: 8px;
   padding: 0.7rem 0.9rem;
 }
-.ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--gold); }
+.ask-field input:focus, .ask-field textarea:focus, .ask-field select:focus { outline: none; border-color: var(--gold); }
+.lead-consent {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0.2rem 0 1rem;
+}
+.lead-consent input { width: 1.15rem; height: 1.15rem; margin-top: 0.2rem; flex-shrink: 0; }
+.lead-note { color: var(--muted); font-size: 0.95rem; margin: 0.8rem 0 0; text-align: center; }
+.lead-error { color: #B42318; font-weight: 700; margin: 0 0 0.9rem; }
 .ask-field textarea { resize: vertical; min-height: 110px; }
 .ask-field .field-error {
   border-color: #D64545 !important;
@@ -988,20 +999,46 @@ a { color: var(--navy); }
           <p class="faq-note">Your question not here? Ask it below on WhatsApp.</p>
         </div>
       </div>
-<div class="section">
+<div class="section" id="lead-form">
         <div class="container">
-          <h2>Ask a Question</h2>
-          <p class="lead">Public comment ki jagah seedha sawal karein — jawab aap ko WhatsApp par mile ga.</p>
-          <form class="ask-card" id="ask-form" novalidate>
+          <h2>Muft Mashwara Ke Liye Rabta Karein</h2>
+          <p class="lead">Form bharein — aap ki maloomat WhatsApp par Mr Insurance ko bheji jayegi, phir hum aap se rabta karenge.</p>
+          <form class="ask-card" id="lead-form-card" novalidate>
+            <p class="lead-error" id="lead-error" hidden></p>
             <div class="ask-field">
-              <label for="ask-name">Your Name <span class="optional">(optional)</span></label>
-              <input type="text" id="ask-name" name="name" autocomplete="name" placeholder="e.g. Muhammad Ahmed">
+              <label for="lead-name">Aap Ka Naam</label>
+              <input type="text" id="lead-name" name="name" autocomplete="name" placeholder="e.g. Muhammad Ahmed">
             </div>
             <div class="ask-field">
-              <label for="ask-question">Your Question</label>
-              <textarea id="ask-question" name="question" rows="4" placeholder="Apna sawal yahan likhein…"></textarea>
+              <label for="lead-phone">Mobile / WhatsApp Number</label>
+              <input type="tel" id="lead-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 03xx-xxxxxxx">
             </div>
-            <button type="button" class="btn btn-whatsapp btn-large" id="ask-send">Send on WhatsApp</button>
+            <div class="ask-field">
+              <label for="lead-city">Sheher <span class="optional">(optional)</span></label>
+              <input type="text" id="lead-city" name="city" autocomplete="address-level2" placeholder="e.g. Karachi">
+            </div>
+            <div class="ask-field">
+              <label for="lead-interest">Kis Cheez Mein Dilchaspi Hai?</label>
+              <select id="lead-interest" name="interest">
+                <option value="">Select karein</option>
+                <option value="Bachon ki taleem / shaadi">Bachon ki taleem / shaadi</option>
+                <option value="Khandan ki hifazat">Khandan ki hifazat</option>
+                <option value="Bachat / pension">Bachat / pension</option>
+                <option value="Takaful plan">Takaful plan</option>
+                <option value="Premium ki maloomat">Premium ki maloomat</option>
+                <option value="Doosra sawal">Doosra sawal</option>
+              </select>
+            </div>
+            <div class="ask-field">
+              <label for="lead-message">Apna Sawal <span class="optional">(optional)</span></label>
+              <textarea id="lead-message" name="message" rows="4" placeholder="Apna sawal yahan likhein…"></textarea>
+            </div>
+            <label class="lead-consent" for="lead-consent">
+              <input type="checkbox" id="lead-consent" name="consent">
+              <span>Main ijazat deta/deti hoon ke Mr Insurance mujh se WhatsApp ya call par rabta kare.</span>
+            </label>
+            <button type="submit" class="btn btn-whatsapp btn-large" id="lead-send">WhatsApp Par Bhejein</button>
+            <p class="lead-note">Button dabane se WhatsApp khulega — wahan Send dabana hoga. Website par aap ki maloomat save nahi hoti.</p>
           </form>
         </div>
       </div>
@@ -2410,26 +2447,50 @@ a { color: var(--navy); }
       });
     }
   
-    var askSend = document.getElementById("ask-send");
-    var askName = document.getElementById("ask-name");
-    var askQuestion = document.getElementById("ask-question");
-    if (askSend && askQuestion) {
-      askQuestion.addEventListener("input", function () {
-        askQuestion.classList.remove("field-error");
-      });
-      askSend.addEventListener("click", function () {
-        var question = askQuestion.value.replace(/^\s+|\s+$/g, "");
-        if (!question) {
-          askQuestion.classList.add("field-error");
-          askQuestion.focus();
-          return;
+    var leadForm = document.getElementById("lead-form-card");
+    if (leadForm) {
+      var leadName = document.getElementById("lead-name");
+      var leadPhone = document.getElementById("lead-phone");
+      var leadCity = document.getElementById("lead-city");
+      var leadInterest = document.getElementById("lead-interest");
+      var leadMessage = document.getElementById("lead-message");
+      var leadConsent = document.getElementById("lead-consent");
+      var leadError = document.getElementById("lead-error");
+      var leadFields = [leadName, leadPhone, leadInterest];
+      function leadTrim(value) { return value.replace(/^\s+|\s+$/g, ""); }
+      function leadShowError(message, field) {
+        if (leadError) { leadError.textContent = message; leadError.hidden = false; }
+        if (field) { field.classList.add("field-error"); field.focus(); }
+      }
+      for (var lf = 0; lf < leadFields.length; lf++) {
+        if (leadFields[lf]) {
+          leadFields[lf].addEventListener("input", function () { this.classList.remove("field-error"); });
+          leadFields[lf].addEventListener("change", function () { this.classList.remove("field-error"); });
         }
-        askQuestion.classList.remove("field-error");
-        var name = askName ? askName.value.replace(/^\s+|\s+$/g, "") : "";
-        var msg = name
-          ? "Assalam o Alaikum! Mera naam " + name + " hai. Mera sawal: " + question
-          : "Assalam o Alaikum! Mera sawal: " + question;
-        window.open("https://wa.me/923363598210?text=" + encodeURIComponent(msg), "_blank");
+      }
+      leadForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (leadError) { leadError.hidden = true; leadError.textContent = ""; }
+        var name = leadName ? leadTrim(leadName.value) : "";
+        var phone = leadPhone ? leadTrim(leadPhone.value) : "";
+        var phoneDigits = phone.replace(/\D/g, "");
+        var city = leadCity ? leadTrim(leadCity.value) : "";
+        var interest = leadInterest ? leadInterest.value : "";
+        var message = leadMessage ? leadTrim(leadMessage.value) : "";
+        if (!name) { leadShowError("Barah-e-karam apna naam likhein.", leadName); return; }
+        if (!/^(03\d{9}|923\d{9})$/.test(phoneDigits)) { leadShowError("Barah-e-karam sahi mobile number likhein, e.g. 03xx-xxxxxxx.", leadPhone); return; }
+        if (!interest) { leadShowError("Barah-e-karam dilchaspi select karein.", leadInterest); return; }
+        if (!leadConsent || !leadConsent.checked) { leadShowError("Barah-e-karam rabte ki ijazat wala box tick karein.", leadConsent); return; }
+        var lines = [
+          "Assalam o Alaikum! Main website se rabta kar raha/rahi hoon.",
+          "Naam: " + name,
+          "Mobile: " + phone,
+          "Dilchaspi: " + interest
+        ];
+        if (city) lines.push("Sheher: " + city);
+        if (message) lines.push("Sawal: " + message);
+        lines.push("Mujhe WhatsApp ya call par rabta karne ki ijazat hai.");
+        window.open("https://wa.me/923363598210?text=" + encodeURIComponent(lines.join("\n")), "_blank");
       });
     }
   
